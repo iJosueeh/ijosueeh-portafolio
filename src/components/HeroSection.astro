@@ -1,0 +1,88 @@
+---
+import { Badge } from "./ui/badge";
+import { Button } from "./ui/button";
+import { FolderKanban, Download, CalendarCheck } from "lucide-react";
+---
+
+<section class="pt-32 pb-2">
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-7xl mx-auto"
+  >
+    <div
+      class="flex flex-col items-center md:items-start text-center md:text-left"
+    >
+      <Badge className="bg-green-500 text-white mb-4">
+        <CalendarCheck className="mr-2 h-4 w-4" />
+        Activo desde: Enero 2020
+      </Badge>
+      <h1 class="text-5xl font-extrabold tracking-tight lg:text-6xl mb-4">
+        ¡Hola! Soy Ijosueeh
+      </h1>
+      <h2 class="text-2xl text-gray-600 dark:text-gray-400 mb-6 min-h-[2rem]">
+        <span id="typing-text"></span>
+      </h2>
+      <p class="text-lg max-w-2xl mb-8">
+        Apasionado por crear <span class="text-yellow-200">experiencias digitales innovadoras</span> y eficientes. 
+        Con experiencia en el <span class="text-yellow-200">desarrollo de aplicaciones web robustas y atractivas</span>, 
+        desde el frontend hasta el backend.
+      </p>
+      <div class="text-md text-gray-500 dark:text-gray-400 mb-8">
+        <p>Ubicación: Lima, Perú</p>
+      </div>
+      <div class="flex gap-4 mb-12">
+        <a
+          href="#proyectos"
+          class="inline-flex items-center px-6 py-3 border border-fuchsia-500 rounded-md text-base font-medium text-white bg-fuchsia-500 hover:bg-fuchsia-600 transition-colors dark:bg-fuchsia-600 dark:text-white dark:border-fuchsia-600"
+        >
+          <FolderKanban className="mr-2 h-5 w-5" />
+          Ver Proyectos
+        </a>
+        <a
+          href="/my-cv.pdf"
+          download
+          class="inline-flex items-center px-6 py-3 border border-gray-300 rounded-md text-base font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700"
+        >
+          <Download className="mr-2 h-5 w-5" />
+          Descargar CV
+        </a>
+      </div>
+    </div>
+    <div class="flex justify-center items-center">
+      <img
+        src="/src/assets/profile-placeholder.jpg"
+        alt="Ijosueeh Profile"
+        class="w-full max-w-sm rounded-lg shadow-lg"
+      />
+    </div>
+  </div>
+
+  <script is:inline>
+    const typingTextElement = document.getElementById("typing-text");
+    const phrases = ["Backend Developer", "Full-Stack Jr."];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+      const currentPhrase = phrases[phraseIndex];
+      const currentText = currentPhrase.substring(0, charIndex);
+      typingTextElement.textContent = currentText;
+
+      if (!isDeleting && charIndex < currentPhrase.length) {
+        charIndex++;
+        setTimeout(typeEffect, 100); // Typing speed
+      } else if (isDeleting && charIndex > 0) {
+        charIndex--;
+        setTimeout(typeEffect, 50); // Deleting speed
+      } else {
+        isDeleting = !isDeleting;
+        if (!isDeleting) {
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+        }
+        setTimeout(typeEffect, 1000); // Pause before next action
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", typeEffect);
+  </script>
+</section>

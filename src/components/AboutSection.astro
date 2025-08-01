@@ -1,0 +1,119 @@
+---
+import { Image } from "astro:assets";
+import profileImage from "../assets/profile-placeholder.jpg";
+import { Button } from "./ui/button";
+import { Badge } from "./ui/badge";
+import {
+  User,
+  MapPin,
+  Phone,
+  GraduationCap,
+  Mail,
+  Briefcase,
+  ArrowRight,
+} from "lucide-react";
+---
+
+<section id="about" class="py-20">
+  <div class="max-w-5xl mx-auto px-6 lg:px-8">
+    <h2 class="text-4xl font-bold mb-12 text-center">Sobre Mí</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 items-center">
+      <!-- Columna de la Imagen (fuera de la tarjeta) -->
+      <div class="md:col-span-2">
+        <Image
+          src={profileImage}
+          alt="Foto de perfil de Josué"
+          class="rounded-lg shadow-xl w-full h-auto object-cover aspect-square"
+        />
+      </div>
+
+      <!-- Columna del Contenido (la tarjeta) -->
+      <div
+        class="md:col-span-3 bg-slate-100 rounded-2xl shadow-xl shadow-gray-300/30 p-8 h-full"
+      >
+        <p class="text-lg text-gray-600 mb-6 text-left">
+          Soy un apasionado desarrollador de software enfocado en crear
+          soluciones tecnológicas eficientes y escalables. Disfruto
+          enfrentando desafíos que me permitan crecer y aportar valor a cada
+          proyecto.
+        </p>
+
+        <!-- Grid de Información Personal -->
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 mb-6 text-left"
+        >
+          <div class="flex items-center gap-3">
+            <User className="w-5 h-5 text-blue-500 flex-shrink-0" />
+            <div>
+              <h3 class="font-semibold text-gray-800 text-sm">Nombre</h3>
+              <p class="text-gray-600 text-sm">Josue Royer Tanta Cieza</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <MapPin className="w-5 h-5 text-blue-500 flex-shrink-0" />
+            <div>
+              <h3 class="font-semibold text-gray-800 text-sm">Localidad</h3>
+              <p class="text-gray-600 text-sm">Lima, Perú</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <Phone className="w-5 h-5 text-blue-500 flex-shrink-0" />
+            <div>
+              <h3 class="font-semibold text-gray-800 text-sm">Teléfono</h3>
+              <p class="text-gray-600 text-sm">+51 903 366 942</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <GraduationCap className="w-5 h-5 text-blue-500 flex-shrink-0" />
+            <div>
+              <h3 class="font-semibold text-gray-800 text-sm">Carrera</h3>
+              <p class="text-gray-600 text-sm">Ingeniería de Software</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <Mail className="w-5 h-5 text-blue-500 flex-shrink-0" />
+            <div>
+              <h3 class="font-semibold text-gray-800 text-sm">Email</h3>
+              <p class="text-gray-600 text-sm">josue.tantacieza@outlook.com</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <Briefcase className="w-5 h-5 text-blue-500 flex-shrink-0" />
+            <div>
+              <h3 class="font-semibold text-gray-800 text-sm">Disponibilidad</h3>
+              <p class="text-gray-600 text-sm">Disponible para trabajar</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Intereses y Botones -->
+        <div>
+          <h3 class="text-lg font-bold text-gray-800 mb-3 mt-6 text-left">
+            Intereses Profesionales
+          </h3>
+          <div class="flex justify-start flex-wrap gap-2 mb-6">
+            <Badge variant="secondary">Backend Development</Badge>
+            <Badge variant="secondary">Frontend Development</Badge>
+            <Badge variant="secondary">Full-Stack Jr</Badge>
+            <Badge variant="secondary">React</Badge>
+            <Badge variant="secondary">Spring Boot</Badge>
+          </div>
+
+          <div class="flex justify-center items-center gap-4">
+            <a href="mailto:josue.tantacieza@outlook.com">
+              <Button size="lg">Contáctame</Button>
+            </a>
+            <div class="border-l border-gray-300 h-8"></div>
+            <a href="#experience">
+              <Button size="lg" variant="outline">
+                Ver Experiencia
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
