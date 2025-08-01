@@ -12,14 +12,15 @@ import {
   Briefcase,
   ArrowRight,
 } from "lucide-react";
+
+const { id } = Astro.props;
 ---
 
-<section id="about" class="py-20">
+<section id={id} class="py-20">
   <div class="max-w-5xl mx-auto px-6 lg:px-8">
     <h2 class="text-4xl font-bold mb-12 text-center">Sobre Mí</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12 items-center">
-      <!-- Columna de la Imagen (fuera de la tarjeta) -->
       <div class="md:col-span-2">
         <Image
           src={profileImage}
@@ -28,7 +29,6 @@ import {
         />
       </div>
 
-      <!-- Columna del Contenido (la tarjeta) -->
       <div
         class="md:col-span-3 bg-slate-100 rounded-2xl shadow-xl shadow-gray-300/30 p-8 h-full"
       >
@@ -39,7 +39,6 @@ import {
           proyecto.
         </p>
 
-        <!-- Grid de Información Personal -->
         <div
           class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 mb-6 text-left"
         >
@@ -87,7 +86,6 @@ import {
           </div>
         </div>
 
-        <!-- Intereses y Botones -->
         <div>
           <h3 class="text-lg font-bold text-gray-800 mb-3 mt-6 text-left">
             Intereses Profesionales
@@ -100,7 +98,7 @@ import {
             <Badge variant="secondary">Spring Boot</Badge>
           </div>
 
-          <div class="flex justify-center items-center gap-4">
+          <div class="flex justify-start items-center gap-4">
             <a href="mailto:josue.tantacieza@outlook.com">
               <Button size="lg">Contáctame</Button>
             </a>

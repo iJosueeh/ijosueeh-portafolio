@@ -18,6 +18,7 @@ interface NavItem {
 
 interface DesktopNavProps {
   navItems: NavItem[];
+  "client:load"?: true;
 }
 
 const iconMap: Record<string, LucideIcon> = {

@@ -12,6 +12,7 @@ interface NavItem {
 
 interface MobileNavProps {
   navItems: NavItem[];
+  "client:load"?: true;
 }
 
 const iconMap: Record<string, LucideIcon> = {

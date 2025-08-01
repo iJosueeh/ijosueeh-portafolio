@@ -1,0 +1,79 @@
+---
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from "./ui/card";
+import { Badge } from "./ui/badge";
+import { Button } from "./ui/button";
+import { Github, Globe } from "lucide-react";
+
+const { id } = Astro.props;
+
+const projectsData = [
+  {
+    title: "MindConnect",
+    status: "Completado",
+    role: "Full-Stack Jr. (Líder de Equipo)",
+    description: "Plataforma para tests de salud emocional a estudiantes universitarios, desarrollada como proyecto principal para el curso de Base de Datos.",
+    startDate: "Marzo 2025",
+    endDate: "Julio 2025",  
+    technologies: ["React", "Spring", "JWT", "Postman", "Bootstrap", "PostgreSQL"],
+    githubUrl: "https://github.com/iJosueeh/MindConnect-web",
+  },
+  {
+    title: "Mi Portafolio Personal",
+    status: "Completado",
+    role: "Desarrollador Full-Stack",
+    description: "Un portafolio personal para mostrar mis habilidades y proyectos, construido con Astro y React.",
+    startDate: "Enero 2025",
+    endDate: "Febrero 2025",
+    technologies: ["Astro", "React", "Tailwind CSS", "Shadcn/UI"],
+    githubUrl: "https://github.com/iJosueeh/ijosueeh-portafolio",
+  },
+  // Puedes añadir más proyectos aquí
+];
+---
+
+<section id={id} class="py-20">
+  <div class="max-w-5xl mx-auto px-6 lg:px-8">
+    <h2 class="text-4xl font-bold mb-16 text-center">Mis Proyectos</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {
+        projectsData.map((project) => (
+          <Card className="flex flex-col overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+            <CardHeader className="relative pb-2">
+              <div class="flex justify-between items-center mb-2">
+                <Globe className="w-6 h-6 text-blue-500" />
+                <Badge variant="secondary" className="text-sm">{project.status}</Badge>
+              </div>
+              <CardTitle>{project.title}</CardTitle>
+              <CardDescription className="text-gray-600 text-sm">{project.role}</CardDescription>
+            </CardHeader>
+            <CardContent className="flex-grow pt-2">
+              <p class="text-gray-700 text-sm mb-3">{project.description}</p>
+              <p class="text-gray-500 text-xs mb-4">{project.startDate} - {project.endDate}</p>
+              <div class="flex flex-wrap gap-2">
+                {project.technologies.map((tech) => (
+                  <Badge variant="secondary">{tech}</Badge>
+                ))}
+              </div>
+            </CardContent>
+            <CardFooter className="flex justify-end mt-auto pt-4">
+              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                <Button variant="outline">
+                  <Github className="w-4 h-4 mr-2" />
+                  Ver Código
+                </Button>
+              </a>
+            </CardFooter>
+          </Card>
+        ))
+      }
+    </div>
+  </div>
+</section>

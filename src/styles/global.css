@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 8rem; /* Ajusta este valor según la altura de tu header */
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%; /* Light background for default */

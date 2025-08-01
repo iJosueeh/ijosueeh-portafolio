@@ -1,11 +1,12 @@
 ---
-import SkillsTabs from "./SkillsTabs";
+import SkillsTabs from "../components/SkillsTabs";
+const { id } = Astro.props;
 ---
 
-<section class="py-20">
+<section id={id} class="py-20">
   <h2 class="text-4xl font-bold mb-8 text-center">Mis Habilidades</h2>
 
   <div class="max-w-5xl mx-auto">
-    <SkillsTabs client:load />
+    <SkillsTabs client:only="react" />
   </div>
 </section>

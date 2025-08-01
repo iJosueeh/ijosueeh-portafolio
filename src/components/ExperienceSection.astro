@@ -1,0 +1,12 @@
+---
+import { ExperienceTabs } from "./ExperienceTabs";
+
+const { id } = Astro.props;
+---
+
+<section id={id} class="py-20">
+  <div class="max-w-5xl mx-auto px-6 lg:px-8">
+    <h2 class="text-4xl font-bold mb-12 text-center">Mi Trayectoria</h2>
+    <ExperienceTabs client:load />
+  </div>
+</section>

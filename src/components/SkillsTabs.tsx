@@ -1,6 +1,6 @@
 "use client"
 
-import * as React from "react"
+import React from "react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "./ui/tabs"
 import { Card, CardHeader, CardTitle, CardContent } from "./ui/card"
 import {
@@ -206,7 +206,10 @@ const SkillsTabs = () => {
           <Code className="w-4 h-4" /> Herramientas
         </TabsTrigger>
       </TabsList>
-      <TabsContent value="technical" className="mt-4">
+      <TabsContent
+        value="technical"
+        className="mt-4 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 data-[state=active]:animate-in data-[state=active]:fade-in-90 data-[state=active]:slide-in-from-bottom-4 duration-500"
+      >
         <div className="grid grid-cols-3 gap-4">
           {technicalSkills.map((category) => (
             <Card key={category.title} className="p-4 bg-white w-full min-h-[200px]">
@@ -245,7 +248,10 @@ const SkillsTabs = () => {
           ))}
         </div>
       </TabsContent>
-      <TabsContent value="soft" className="mt-4">
+      <TabsContent
+        value="soft"
+        className="mt-4 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 data-[state=active]:animate-in data-[state=active]:fade-in-90 data-[state=active]:slide-in-from-bottom-4 duration-500"
+      >
         <div className="grid grid-cols-3 gap-4">
           {softSkills.map((category) => (
             <Card key={category.title} className="p-4 bg-white w-full min-h-[200px]">
@@ -284,7 +290,10 @@ const SkillsTabs = () => {
           ))}
         </div>
       </TabsContent>
-      <TabsContent value="tools" className="mt-4">
+      <TabsContent
+        value="tools"
+        className="mt-4 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 data-[state=active]:animate-in data-[state=active]:fade-in-90 data-[state=active]:slide-in-from-bottom-4 duration-500"
+      >
         <div className="grid grid-cols-3 gap-4">
           {toolsSkills.map((category) => (
             <Card key={category.title} className="p-4 bg-white w-full min-h-[200px]">
