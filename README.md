@@ -30,37 +30,24 @@
 
 <br />
 
-<div align="center">
-  <hr width="80%" />
-</div>
+---
+
+## ◆ Características Principales
+
+| Característica | Descripción |
+| :--- | :--- |
+| 📐 **Disciplina 100dvh** | Experiencia inmersiva en pantalla única calibrada para `100dvh / 100vh` sin scrollbars verticales ni horizontales indeseadas. |
+| ⚡ **Astro View Transitions** | Transiciones y morphing suave entre pantallas mediante `<ClientRouter />` sin parpadeos de carga. |
+| 🔊 **Audio en Tiempo Real** | Sintetizador de audio de 8-bit procedural con **Web Audio API** nativo (cero peticiones de archivos `.mp3`). |
+| ⌨️ **Navegación por Teclado** | Atajos globales arcade (`[◀ ▶]`, `[1-6]`, `[ENTER]`, `[ESC]`) con aislamiento automático al escribir en inputs. |
+| 🏛️ **Arquitectura SOLID** | Separación estricta de responsabilidades (SRP), datos inmutables y hooks desacoplados en React 19. |
+| 🎨 **Capa Atómica Neo-Pixel** | Componentes modulares reutilizables (`NeoPixelCard`, `ScreenBreadcrumb`, `NeoPixelButton`). |
 
 <br />
 
-## <div align="center">◆ Características Principales ◆</div>
+---
 
-<div align="center">
-
-| 📐 Disciplina 100dvh | ⚡ Astro View Transitions | 🔊 Audio en Tiempo Real |
-| :---: | :---: | :---: |
-| Experiencia inmersiva en pantalla única calibrada para **100dvh / 100vh** sin scrollbars verticales ni horizontales indeseadas. | Transiciones y morphing suave entre pantallas mediante `<ClientRouter />` sin parpadeos. | Sintetizador de audio de 8-bit procedural con **Web Audio API** nativo (cero archivos pesados `.mp3`). |
-
-| ⌨️ Navegación por Teclado | 🏛️ Arquitectura SOLID | 🎨 Capa Atómica Neo-Pixel |
-| :---: | :---: | :---: |
-| Atajos globales arcade (`[◀ ▶]`, `[1-6]`, `[ENTER]`, `[ESC]`) con aislamiento de inputs. | Separación estricta de responsabilidades (SRP), datos inmutables y hooks desacoplados. | Componentes modulares (`NeoPixelCard`, `ScreenBreadcrumb`, `NeoPixelButton`). |
-
-</div>
-
-<br />
-
-<div align="center">
-  <hr width="80%" />
-</div>
-
-<br />
-
-## <div align="center">🛰️ Módulos del Sistema</div>
-
-<div align="center">
+## 🛰️ Módulos del Sistema
 
 ```text
 // TOPOLOGÍA DEL SISTEMA
@@ -74,7 +61,7 @@
         └── CH-06 // /contacto       ── Terminal de Comunicación Directa
 ```
 
-<br />
+### Detalle de Módulos
 
 | Canal | Módulo | Ruta | Descripción de Telemetría |
 | :---: | :--- | :---: | :--- |
@@ -85,19 +72,11 @@
 | `CH-05` | **Bóveda de Logros** | [`/logros`](https://ijosueeh.dev/logros) | Vitrina holográfica con pedestales 3D para hitos de arquitectura y producción. |
 | `CH-06` | **Contacto** | [`/contacto`](https://ijosueeh.dev/contacto) | Osciloscopio en tiempo real, copia rápida de correo y formulario cuántico. |
 
-</div>
-
 <br />
 
-<div align="center">
-  <hr width="80%" />
-</div>
+---
 
-<br />
-
-## <div align="center">🕹️ Controles de Teclado</div>
-
-<div align="center">
+## 🕹️ Controles de Teclado
 
 ```text
  ┌─────────────┐   ┌─────────────┐   ┌─────────────┐
@@ -118,23 +97,13 @@
 | `[ ESC ]` | Volver al selector de módulos (`/modos`) | Retorno rápido |
 | `[ 1 ]` .. `[ 6 ]` | Acceso directo por número de ranura | Selección rápida en `/modos` y sub-módulos |
 
-</div>
-
 <br />
 
-<div align="center">
-  <hr width="80%" />
-</div>
+---
 
-<br />
+## 🔊 Motor de Audio Sintetizado
 
-## <div align="center">🔊 Motor de Audio Sintetizado</div>
-
-<p align="center">
-  Todos los efectos de sonido son sintetizados en tiempo real en el cliente utilizando osciladores nativos de <b>Web Audio API</b>, sin consumir peticiones de red para archivos de audio.
-</p>
-
-<div align="center">
+Todos los efectos de sonido son sintetizados en tiempo real en el cliente utilizando osciladores nativos de **Web Audio API**, sin consumir peticiones de red para archivos de audio.
 
 | Efecto | Tipo de Onda | Rango de Frecuencia | Propósito |
 | :--- | :---: | :---: | :--- |
@@ -144,23 +113,13 @@
 | **`start`** | Mixta | Arpegio pentatónico | Sonido de despegue y confirmación de misiones. |
 | **`warp`** | Triangular | Modulación descendente | Efecto espacial de transición entre pantallas. |
 
-</div>
-
-<p align="center">
-  <sub>El estado de silencio (Mute) se sincroniza de forma reactiva entre todas las islas de Astro mediante <code>useSyncExternalStore</code> y persistencia en <code>localStorage</code>.</sub>
-</p>
+> **Nota de Sincronización:** El estado de silencio (*Mute*) se sincroniza de forma reactiva entre todas las islas de Astro mediante `useSyncExternalStore` y persistencia en `localStorage`.
 
 <br />
 
-<div align="center">
-  <hr width="80%" />
-</div>
+---
 
-<br />
-
-## <div align="center">🏛️ Arquitectura del Sistema</div>
-
-<div align="center">
+## 🏛️ Arquitectura del Sistema
 
 ```text
 src/
@@ -180,19 +139,11 @@ src/
 └── utils/               # Motor de Audio (Patrón Strategy) y Navegación
 ```
 
-</div>
-
 <br />
 
-<div align="center">
-  <hr width="80%" />
-</div>
+---
 
-<br />
-
-## <div align="center">⚡ Stack Tecnológico</div>
-
-<div align="center">
+## ⚡ Stack Tecnológico
 
 | Capa | Tecnología | Propósito |
 | :--- | :--- | :--- |
@@ -202,24 +153,18 @@ src/
 | **Audio Engine** | Web Audio API | Sintetizador de ondas de 8-bit procedural en tiempo real. |
 | **Tipografía** | Google Fonts | Chakra Petch, Press Start 2P, Space Mono, Inter. |
 
-</div>
-
 <br />
 
-<div align="center">
-  <hr width="80%" />
-</div>
+---
 
-<br />
-
-## <div align="center">🚀 Inicio Rápido</div>
-
-<div align="center">
+## 🚀 Inicio Rápido
 
 ### Prerrequisitos
-`Node.js >= 18.17.0` &nbsp;•&nbsp; `pnpm` (recomendado), `npm` o `yarn`
 
-</div>
+- **Node.js** `>= 18.17.0` o `>= 20.0.0`
+- **pnpm** (recomendado), **npm** o **yarn**
+
+### Instalación y Ejecución
 
 ```bash
 # 1. Clonar el repositorio
@@ -235,8 +180,6 @@ pnpm install
 pnpm dev
 ```
 
-<div align="center">
-
 ### Comandos de Compilación
 
 | Comando | Descripción |
@@ -245,17 +188,11 @@ pnpm dev
 | `pnpm preview` | Previsualiza el build de producción localmente en `http://localhost:4321` |
 | `pnpm astro check` | Ejecuta la verificación estricta de tipos de TypeScript y Astro |
 
-</div>
-
 <br />
 
-<div align="center">
-  <hr width="80%" />
-</div>
+---
 
-<br />
-
-## <div align="center">📡 Frecuencias de Contacto</div>
+## 📡 Frecuencias de Contacto
 
 <div align="center">
 
