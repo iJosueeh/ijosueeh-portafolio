@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@theme {
+  --color-arcade-bg: #070410;
+  --color-arcade-surface: #130e24;
+  --color-arcade-panel: #1b1433;
+  --color-arcade-border: #2d204d;
+  --color-arcade-border-bright: #523985;
+  
+  --color-arcade-magenta: #f43f85;
+  --color-arcade-pink: #f472b6;
+  --color-arcade-pink-light: #fce7f3;
+  --color-arcade-lavender: #d8b4fe;
+  --color-arcade-purple: #9333ea;
+  --color-arcade-cyan: #38bdf8;
+  --color-arcade-gold: #fbbf24;
+
+  --font-arcade: "Press Start 2P", monospace;
+  --font-mono: "Space Mono", monospace;
+  --font-display: "Chakra Petch", sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+/* Base resets & crisp rendering */
+html, body {
+  background-color: var(--color-arcade-bg);
+  color: #f1f5f9;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+/* Smooth, seamless Astro View Transitions (Eliminating flash of black & synchronized morphing) */
+::view-transition-group(root) {
+  animation-duration: 0.25s;
+  animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+::view-transition-old(root) {
+  animation: 0.25s cubic-bezier(0.25, 1, 0.5, 1) both fade-out;
+}
+::view-transition-new(root) {
+  animation: 0.25s cubic-bezier(0.25, 1, 0.5, 1) both fade-in;
+}
+
+::view-transition-group(neo-scifi-main-card) {
+  animation-duration: 0.32s;
+  animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+::view-transition-old(neo-scifi-main-card) {
+  animation: 0.16s ease-out both fade-out;
+}
+::view-transition-new(neo-scifi-main-card) {
+  animation: 0.24s ease-in both fade-in;
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Subtle Sci-Fi CRT scanline */
+.crt-overlay {
+  background: linear-gradient(
+    rgba(18, 12, 30, 0) 50%, 
+    rgba(7, 4, 16, 0.18) 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  opacity: 0.20;
+}
+
+/* Pixel Art Sharp Rendering */
+.pixel-sharp {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* Neo-Pixel Sci-Fi 3D Tactile Buttons */
+.neo-pixel-btn {
+  box-shadow: 3px 3px 0px #500724;
+  transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.neo-pixel-btn:hover {
+  box-shadow: 1.5px 1.5px 0px #500724;
+  transform: translate(1.5px, 1.5px);
+}
+.neo-pixel-btn:active {
+  box-shadow: 0px 0px 0px #500724;
+  transform: translate(3px, 3px);
+}
+
+/* Neo-Pixel Card Glassmorphism Frame */
+.neo-scifi-panel {
+  background: rgba(19, 14, 36, 0.90);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(168, 85, 247, 0.24);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(147, 51, 234, 0.10);
+}
+
+/* Pulsating arcade animations */
+@keyframes arcade-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0.2; }
+}
+.animate-arcade-blink {
+  animation: arcade-blink 1.2s infinite steps(1);
+}
+
+@keyframes telemetry-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+.animate-telemetry-pulse {
+  animation: telemetry-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Soft Luminescence */
+.soft-glow-pink {
+  text-shadow: 0 0 8px rgba(244, 114, 182, 0.4);
+}

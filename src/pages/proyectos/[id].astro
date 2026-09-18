@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { MissionDetail } from '../../components/MissionDetail';
+import { MISSIONS_DATA } from '../../data/missions';
+
+export function getStaticPaths() {
+  return Object.keys(MISSIONS_DATA).map((id) => ({
+    params: { id },
+  }));
+}
+
+const { id } = Astro.params;
+const mission = MISSIONS_DATA[id || 'jaldishop'] || MISSIONS_DATA.jaldishop;
+---
+
+<Layout title={`iJOSUEEH // Misión: ${mission.title}`}>
+  <MissionDetail client:load missionId={id} />
+</Layout>
