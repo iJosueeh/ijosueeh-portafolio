@@ -202,20 +202,6 @@ pnpm dev
 
 ---
 
-## ☁️ Despliegue en Cloudflare Pages
-
-1. Conecta tu repositorio de GitHub en [Cloudflare Dashboard](https://dash.cloudflare.com/) > **Compute (Workers & Pages)** > **Pages** > **Connect to Git**.
-2. Parámetros de compilación:
-   - **Framework preset:** `Astro`
-   - **Build command:** `pnpm run build`
-   - **Build output directory:** `dist`
-   - **Variables de entorno:** `PUBLIC_WEB3FORMS_KEY` = `tu_access_key`
-3. En la pestaña **Custom domains**, añade tu dominio personalizado `ijosueeh.dev`.
-
-<br />
-
----
-
 ## 📡 Frecuencias de Contacto
 
 <div align="center">
