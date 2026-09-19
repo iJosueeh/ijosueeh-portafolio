@@ -104,9 +104,13 @@ export const ContactTerminal: React.FC = () => {
             {/* Quick CV Download Link */}
             <div className="pt-2 border-t border-purple-900/50 mt-1">
               <a
-                href={`mailto:${emailAddress}?subject=Solicitud%20de%20CV`}
+                href={CONTACT_CONFIG.cvUrl}
+                download={CONTACT_CONFIG.cvFilename || "CV - JOSUE ROYER TANTA CIEZA.pdf"}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => play('coin')}
                 onMouseEnter={() => play('hover')}
-                className="w-full py-1.5 bg-[#1a1236] hover:bg-[#25184f] border border-purple-800 text-purple-200 hover:text-white text-[8px] font-arcade tracking-wider uppercase flex items-center justify-center gap-1.5 transition-colors"
+                className="w-full py-1.5 bg-[#1a1236] hover:bg-[#25184f] border border-purple-800 text-purple-200 hover:text-white text-[8px] font-arcade tracking-wider uppercase flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
               >
                 <span>📄</span>
                 <span>DESCARGAR FICHA TÉCNICA (CV)</span>
