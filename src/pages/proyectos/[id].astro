@@ -10,9 +10,8 @@ export function getStaticPaths() {
 }
 
 const { id } = Astro.params;
-const mission = MISSIONS_DATA[id || 'jaldishop'] || MISSIONS_DATA.jaldishop;
 ---
 
-<Layout title={`iJOSUEEH // Misión: ${mission.title}`}>
+<Layout title="IJosueeh - Portafolio">
   <MissionDetail client:load missionId={id} />
 </Layout>
