@@ -1,24 +1,29 @@
-import React, { useState } from 'react';
-import { playRetroBeep } from '../utils/audio';
-import { navigateTo } from '../utils/navigation';
-import { useKeyboardNav } from '../hooks/useKeyboardNav';
-import { MODES_DATA } from '../data/modes';
-import { NeoPixelCard, ScreenBreadcrumb, NeoPixelButton } from './ui';
-import type { ModeItem } from '../types';
+import React, { useState } from "react";
+import { playRetroBeep } from "../utils/audio";
+import { navigateTo } from "../utils/navigation";
+import { useKeyboardNav } from "../hooks/useKeyboardNav";
+import { MODES_DATA } from "../data/modes";
+import {
+  NeoPixelCard,
+  ScreenBreadcrumb,
+  NeoPixelButton,
+  PixelIcon,
+} from "./ui";
+import type { ModeItem } from "../types";
 
 export const ModeSelect: React.FC = () => {
   const modes: ModeItem[] = MODES_DATA;
-  const [selectedIdx, setSelectedIdx] = useState<number>(1); // Default to Proyectos (CH-02)
+  const [selectedIdx, setSelectedIdx] = useState<number>(1);
 
   const activeMode = modes[selectedIdx] || modes[0];
 
   const handleSelect = (index: number) => {
-    playRetroBeep('select');
+    playRetroBeep("select");
     setSelectedIdx(index);
   };
 
   const handleExecute = () => {
-    playRetroBeep('start');
+    playRetroBeep("start");
     navigateTo(activeMode.href);
   };
 
@@ -30,23 +35,23 @@ export const ModeSelect: React.FC = () => {
       }
     },
     onNext: () => {
-      playRetroBeep('hover');
+      playRetroBeep("hover");
       setSelectedIdx((prev) => (prev + 1) % modes.length);
     },
     onPrev: () => {
-      playRetroBeep('hover');
+      playRetroBeep("hover");
       setSelectedIdx((prev) => (prev - 1 + modes.length) % modes.length);
     },
     onEnter: handleExecute,
     onEscape: () => {
-      playRetroBeep('select');
-      navigateTo('/');
+      playRetroBeep("select");
+      navigateTo("/");
     },
   });
 
   return (
     <main
-      className="w-full max-w-4xl lg:max-w-5xl mx-auto my-auto z-10 flex flex-col items-center justify-center py-1 sm:py-3 px-1 sm:px-2 select-none"
+      className="w-full max-w-4xl lg:max-w-5xl mx-auto my-auto z-10 flex flex-col items-center justify-center py-2 sm:py-4 px-2 select-none"
       data-purpose="mode-select-screen"
     >
       {/* 1. Breadcrumb Bar */}
@@ -59,11 +64,11 @@ export const ModeSelect: React.FC = () => {
 
       {/* Screen Title */}
       <div
-        className="flex items-center justify-center space-x-2 mb-1.5 sm:mb-3"
+        className="flex items-center justify-center space-x-2 mb-2 sm:mb-3.5"
         data-purpose="section-header"
       >
         <span className="text-arcade-cyan text-[10px] sm:text-xs">◆</span>
-        <h1 className="font-arcade text-pink-300 text-[10px] sm:text-xs md:text-sm tracking-widest text-center uppercase glow-magenta">
+        <h1 className="font-arcade text-pink-300 text-[11px] sm:text-xs md:text-sm tracking-widest text-center uppercase glow-magenta">
           SELECCIONA UN MÓDULO
         </h1>
         <span className="text-arcade-cyan text-[10px] sm:text-xs">◆</span>
@@ -75,9 +80,9 @@ export const ModeSelect: React.FC = () => {
         data-purpose="arcade-modal-container"
       >
         {/* Upper Strip */}
-        <div className="flex items-center justify-between pb-1.5 sm:pb-2.5 mb-2 sm:mb-3.5 border-b border-purple-900/50 text-[9px] sm:text-xs">
-          <div className="flex items-center space-x-1.5 sm:space-x-2">
-            <span className="bg-arcade-magenta text-white font-arcade px-1.5 sm:px-2 py-0.5 font-bold text-[8px] sm:text-[9px] shadow-[2px_2px_0px_#500724]">
+        <div className="flex items-center justify-between pb-2 sm:pb-3 mb-2.5 sm:mb-4 border-b border-purple-900/50 text-[9px] sm:text-xs">
+          <div className="flex items-center space-x-2">
+            <span className="bg-arcade-magenta text-white font-arcade px-2 py-0.5 font-bold text-[8px] sm:text-[9px] shadow-[2px_2px_0px_#500724]">
               MENÚ ESPACIAL
             </span>
             <span className="font-mono text-arcade-cyan text-[9px] sm:text-[10px] font-semibold">
@@ -91,7 +96,7 @@ export const ModeSelect: React.FC = () => {
 
         {/* 3x2 Mode Grid */}
         <div
-          className="grid grid-cols-2 md:grid-cols-3 gap-1.5 sm:gap-2.5 mb-2 sm:mb-3"
+          className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3.5 mb-3 sm:mb-4"
           data-purpose="modes-grid"
         >
           {modes.map((mode, idx) => {
@@ -107,12 +112,12 @@ export const ModeSelect: React.FC = () => {
                   }
                 }}
                 onDoubleClick={handleExecute}
-                onMouseEnter={() => playRetroBeep('hover')}
+                onMouseEnter={() => playRetroBeep("hover")}
                 type="button"
-                className={`group relative flex flex-col text-left p-2 sm:p-3 transition-all duration-150 focus:outline-none cursor-pointer ${
+                className={`group relative flex flex-col justify-between text-left p-3 sm:p-3.5 transition-all duration-150 focus:outline-none cursor-pointer border-2 min-h-[110px] sm:min-h-[125px] ${
                   isSelected
-                    ? 'bg-gradient-to-b from-[#241744] to-[#160f2d] border-2 border-arcade-magenta shadow-[0_0_12px_rgba(244,63,133,0.35)] scale-[1.01]'
-                    : 'bg-[#150f29]/80 border border-purple-900/40 hover:border-purple-600/60 hover:bg-[#1c1437]'
+                    ? "bg-gradient-to-b from-[#251747] to-[#150e2d] border-arcade-magenta shadow-[0_0_12px_rgba(244,63,133,0.35)]"
+                    : "bg-[#140e28]/85 border-purple-900/40 hover:border-purple-600/60 hover:bg-[#1a1236]"
                 }`}
               >
                 {/* Micro corner tabs for active state */}
@@ -123,91 +128,68 @@ export const ModeSelect: React.FC = () => {
                   </>
                 )}
 
-                {/* Top Code & Index */}
-                <div className="flex items-center justify-between w-full mb-1 sm:mb-1.5">
+                {/* Top Code & Index - fixed layout to avoid any jitter */}
+                <div className="flex items-center justify-between w-full mb-2">
                   <span
-                    className={`font-arcade text-[8px] sm:text-[9px] ${
-                      isSelected
-                        ? 'text-pink-300 flex items-center'
-                        : 'text-arcade-cyan'
+                    className={`font-arcade text-[8px] sm:text-[9px] tracking-wider ${
+                      isSelected ? "text-pink-300 font-bold" : "text-arcade-cyan"
                     }`}
                   >
+                    {mode.code}
+                  </span>
+                  <div className="flex items-center gap-1">
                     {isSelected && (
-                      <span className="animate-arcade-blink mr-0.5">▶</span>
+                      <span className="w-1.5 h-1.5 bg-arcade-magenta animate-pulse" />
                     )}
-                    {isSelected ? 'ACTIVO' : mode.code}
-                  </span>
-                  <span
-                    className={`text-[9px] sm:text-xs font-mono ${
-                      isSelected ? 'text-pink-300 font-bold' : 'text-purple-300/50'
-                    }`}
-                  >
-                    {mode.index}
-                  </span>
+                    <span
+                      className={`text-[9px] sm:text-xs font-mono font-bold ${
+                        isSelected
+                          ? "text-pink-300"
+                          : "text-purple-400/50"
+                      }`}
+                    >
+                      {mode.index}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Pixel Icon Box & Title */}
-                <div className="flex items-center gap-2 mb-1">
+                <div className="flex items-center gap-2.5 sm:gap-3 mb-2">
                   <div
-                    className={`w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center shrink-0 border transition-colors ${
+                    className={`w-9 h-9 sm:w-10 sm:h-10 min-w-[36px] sm:min-w-[40px] min-h-[36px] sm:min-h-[40px] flex items-center justify-center shrink-0 border transition-colors ${
                       isSelected
-                        ? 'bg-purple-950/60 border-arcade-magenta text-pink-300 shadow-[inset_0_0_8px_rgba(244,63,133,0.3)]'
-                        : 'bg-[#1a1233] border-purple-900/50 text-purple-300/60 group-hover:text-white group-hover:border-purple-500'
+                        ? "bg-purple-950/70 border-arcade-magenta text-pink-300 shadow-[inset_0_0_8px_rgba(244,63,133,0.35)]"
+                        : "bg-[#181132] border-purple-900/60 text-purple-300/70 group-hover:text-white group-hover:border-purple-500"
                     }`}
                   >
-                    {mode.icon === 'user' && (
-                      <svg className="w-4 h-4 pixel-sharp" viewBox="0 0 16 16" fill="currentColor">
-                        <path d="M8 2a3 3 0 100 6 3 3 0 000-6zM3 13c0-2.5 2.5-4 5-4s5 1.5 5 4v1H3v-1z" />
-                      </svg>
-                    )}
-                    {mode.icon === 'rocket' && (
-                      <svg className="w-4 h-4 pixel-sharp" viewBox="0 0 16 16" fill="currentColor">
-                        <path d="M8 1c-2 2-3 5-3 8l-3 2v2l3-1 1 3h2l1-3 3 1v-2l-3-2c0-3-1-6-3-8zm0 5a1.5 1.5 0 110 3 1.5 1.5 0 010-3z" />
-                      </svg>
-                    )}
-                    {mode.icon === 'tech' && (
-                      <svg className="w-4 h-4 pixel-sharp" viewBox="0 0 16 16" fill="currentColor">
-                        <path d="M9 1L3 9h5l-1 6 6-8H8l1-6z" />
-                      </svg>
-                    )}
-                    {mode.icon === 'journey' && (
-                      <svg className="w-4 h-4 pixel-sharp" viewBox="0 0 16 16" fill="currentColor">
-                        <path d="M1 3l4-2 6 2 4-2v12l-4 2-6-2-4 2V3zm5 0v10l4 1.3V4.3L6 3z" />
-                      </svg>
-                    )}
-                    {mode.icon === 'trophy' && (
-                      <svg className="w-4 h-4 pixel-sharp" viewBox="0 0 16 16" fill="currentColor">
-                        <path d="M4 2H1v4c0 1.5 1 3 3 3h1v2H3v2h10v-2h-2V9h1c2 0 3-1.5 3-3V2h-3v2h1v2c0 .8-.5 1.5-1.5 1.5H11V2H5v4.5H3.5C2.7 6.5 2.2 5.8 2.2 5V4H4V2z" />
-                      </svg>
-                    )}
-                    {(mode.icon === 'chat' || mode.icon === 'comms') && (
-                      <svg className="w-4 h-4 pixel-sharp" viewBox="0 0 16 16" fill="currentColor">
-                        <path d="M7 1h2v4H7V1zm-4 5h2v4H3V6zm8 0h2v4h-2V6zM5 11h6v2H5v-2zm2 2h2v3H7v-3z" />
-                      </svg>
-                    )}
+                    <PixelIcon name={mode.icon} size={20} />
                   </div>
 
-                  <div className="min-w-0 flex-1">
+                  <div className="min-w-0 flex-1 overflow-hidden">
                     <h2
-                      className={`font-arcade text-[9px] sm:text-[11px] md:text-xs uppercase tracking-wide truncate ${
-                        isSelected ? 'text-white' : 'text-slate-200'
+                      className={`font-arcade text-[9.5px] sm:text-[11.5px] md:text-xs uppercase tracking-wide truncate ${
+                        isSelected ? "text-white font-bold" : "text-slate-200"
                       }`}
                     >
                       {mode.title}
                     </h2>
-                    <p className="font-mono text-[7px] sm:text-[8px] text-purple-300/60 truncate uppercase">
+                    <p className="font-mono text-[7.5px] sm:text-[8.5px] text-purple-300/70 truncate uppercase mt-0.5">
                       {mode.subtitle}
                     </p>
                   </div>
                 </div>
 
                 {/* Status Bar */}
-                <div className="mt-auto pt-1 border-t border-purple-900/30 flex items-center justify-between text-[7px] sm:text-[8px] font-mono">
-                  <span className={`${isSelected ? 'text-arcade-magenta' : 'text-purple-400/60'}`}>
+                <div className="pt-1.5 border-t border-purple-900/40 flex items-center justify-between text-[7.5px] sm:text-[8.5px] font-mono">
+                  <span
+                    className={`${isSelected ? "text-arcade-magenta font-semibold" : "text-purple-400/60"}`}
+                  >
                     {mode.badge}
                   </span>
-                  <span className={`${isSelected ? 'text-arcade-cyan font-bold' : 'text-purple-300/40'}`}>
-                    &gt;&gt;
+                  <span
+                    className={`${isSelected ? "text-arcade-cyan font-bold" : "text-purple-300/40"}`}
+                  >
+                    {isSelected ? "▶ LISTO" : ">>"}
                   </span>
                 </div>
               </button>
@@ -216,13 +198,13 @@ export const ModeSelect: React.FC = () => {
         </div>
 
         {/* Bottom Selected Telemetry & Confirm Action */}
-        <div className="flex flex-col sm:flex-row items-center justify-between border-t border-purple-900/50 pt-2 gap-2">
+        <div className="flex flex-col sm:flex-row items-center justify-between border-t border-purple-900/50 pt-2.5 sm:pt-3 gap-2.5">
           <div className="flex items-center space-x-2 text-[8px] sm:text-[9px] font-mono w-full sm:w-auto justify-between sm:justify-start">
             <span className="text-purple-300/70">DESTINO:</span>
-            <span className="font-arcade text-pink-300 font-bold text-[8px] sm:text-[9px]">
+            <span className="font-arcade text-pink-300 font-bold text-[8.5px] sm:text-[10px]">
               {activeMode.title}
             </span>
-            <span className="text-arcade-cyan font-mono text-[8px] sm:text-[9px] bg-cyan-950/40 px-1.5 py-0.5 border border-cyan-800/40 hidden sm:inline-block">
+            <span className="text-arcade-cyan font-mono text-[8px] sm:text-[9px] bg-cyan-950/40 px-2 py-0.5 border border-cyan-800/40 hidden sm:inline-block">
               {activeMode.subtitle}
             </span>
           </div>
@@ -236,7 +218,9 @@ export const ModeSelect: React.FC = () => {
             >
               <span>▶</span>
               <span>EJECUTAR MÓDULO</span>
-              <span className="font-mono text-[9px] text-pink-200 hidden sm:inline">[ENTER]</span>
+              <span className="font-mono text-[9px] text-pink-200 hidden sm:inline">
+                [ENTER]
+              </span>
             </NeoPixelButton>
           </div>
         </div>

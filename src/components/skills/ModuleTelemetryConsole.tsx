@@ -9,7 +9,7 @@ export const ModuleTelemetryConsole: React.FC<ModuleTelemetryConsoleProps> = ({
   module,
 }) => {
   return (
-    <div className="md:col-span-7 flex flex-col justify-between bg-[#0b071d]/95 border border-purple-900/70 p-2.5 sm:p-4 relative">
+    <div className="md:col-span-7 flex flex-col justify-start space-y-2 sm:space-y-2.5 bg-[#0b071d]/95 border border-purple-900/70 p-2.5 sm:p-4 relative">
       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:8px_8px] pointer-events-none" />
 
       {/* Telemetry Header */}

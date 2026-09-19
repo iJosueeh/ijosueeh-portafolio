@@ -6,7 +6,7 @@ import { CONTACT_CONFIG } from '../data/contact';
 import { ScreenBreadcrumb, NeoPixelCard, NeoPixelButton } from './ui';
 import { RadioOscilloscope } from './contact/RadioOscilloscope';
 import { ContactFrequencyList } from './contact/ContactFrequencyList';
-import { SubSpaceForm } from './contact/SubSpaceForm';
+import { SubSpaceForm, type TransmissionStatus } from './contact/SubSpaceForm';
 
 export const ContactTerminal: React.FC = () => {
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -15,7 +15,8 @@ export const ContactTerminal: React.FC = () => {
     email: '',
     message: '',
   });
-  const [sentStatus, setSentStatus] = useState(false);
+  const [status, setStatus] = useState<TransmissionStatus>('idle');
+  const [statusMessage, setStatusMessage] = useState<string>('');
   const { play } = useRetroAudio();
 
   const emailAddress = CONTACT_CONFIG.email;
@@ -33,23 +34,84 @@ export const ContactTerminal: React.FC = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSendTransmission = (e: React.FormEvent) => {
+  const handleSendTransmission = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.message) return;
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) return;
 
+    setStatus('sending');
+    setStatusMessage('');
     play('start');
-    setSentStatus(true);
 
-    const subject = encodeURIComponent(`[MISIÓN] Contacto de ${formData.name}`);
-    const body = encodeURIComponent(
-      `Remitente: ${formData.name}\nEmail: ${formData.email}\n\nMensaje:\n${formData.message}`
-    );
-    window.open(`mailto:${emailAddress}?subject=${subject}&body=${body}`, '_blank');
+    const accessKey = CONTACT_CONFIG.web3formsAccessKey;
 
-    setTimeout(() => {
-      setSentStatus(false);
-      setFormData({ name: '', email: '', message: '' });
-    }, 3500);
+    if (accessKey && accessKey.trim() !== '') {
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            access_key: accessKey,
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+            from_name: `Portafolio Espacial - ${formData.name}`,
+            subject: `[MISIÓN ESPACIAL] Transmisión de ${formData.name}`,
+          }),
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          setStatus('success');
+          setStatusMessage('¡TRANSMISIÓN ENTREGADA AL BUZÓN DEL PILOTO!');
+          play('coin');
+          setTimeout(() => {
+            setStatus('idle');
+            setStatusMessage('');
+            setFormData({ name: '', email: '', message: '' });
+          }, 4000);
+          return;
+        } else {
+          throw new Error(result.message || 'Error al conectar con Web3Forms');
+        }
+      } catch (err) {
+        console.warn('Web3Forms dispatch error, falling back to mailto:', err);
+        setStatus('error');
+        setStatusMessage('FALLÓ CANAL DIRECTO — ABRIENDO CLIENTE DE CORREO...');
+        play('laser');
+
+        const subject = encodeURIComponent(`[MISIÓN] Contacto de ${formData.name}`);
+        const body = encodeURIComponent(
+          `Remitente: ${formData.name}\nEmail: ${formData.email}\n\nMensaje:\n${formData.message}`
+        );
+        window.open(`mailto:${emailAddress}?subject=${subject}&body=${body}`, '_blank');
+
+        setTimeout(() => {
+          setStatus('idle');
+          setStatusMessage('');
+        }, 4500);
+      }
+    } else {
+      // Standard direct mailto channel when access key is not set in env
+      const subject = encodeURIComponent(`[MISIÓN] Contacto de ${formData.name}`);
+      const body = encodeURIComponent(
+        `Remitente: ${formData.name}\nEmail: ${formData.email}\n\nMensaje:\n${formData.message}`
+      );
+      window.open(`mailto:${emailAddress}?subject=${subject}&body=${body}`, '_blank');
+
+      setStatus('success');
+      setStatusMessage('¡CLIENTE DE CORREO DESPLEGADO CON ÉXITO!');
+      play('coin');
+
+      setTimeout(() => {
+        setStatus('idle');
+        setStatusMessage('');
+        setFormData({ name: '', email: '', message: '' });
+      }, 3500);
+    }
   };
 
   useKeyboardNav({
@@ -133,7 +195,8 @@ export const ContactTerminal: React.FC = () => {
           {/* Right Column: Quantum Transmission Dispatcher (7 cols) */}
           <SubSpaceForm
             formData={formData}
-            sentStatus={sentStatus}
+            status={status}
+            statusMessage={statusMessage}
             onInputChange={handleInputChange}
             onSubmit={handleSendTransmission}
             onHoverSound={() => play('hover')}

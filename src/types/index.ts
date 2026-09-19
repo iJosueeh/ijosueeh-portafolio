@@ -96,6 +96,8 @@ export interface Trophy {
   type: "architecture" | "performance" | "production" | "fullstack" | "professional" | "hackathon" | "scholarship" | "academic";
 }
 
+export type ModeIconType = "user" | "rocket" | "tech" | "journey" | "trophy" | "comms" | "chat" | string;
+
 export interface ModeItem {
   id: string;
   code: string;
@@ -103,7 +105,8 @@ export interface ModeItem {
   title: string;
   subtitle: string;
   description: string;
-  icon: "user" | "rocket" | "tech" | "journey" | "trophy" | "comms" | string;
+  badge?: string;
+  icon: ModeIconType;
   href: string;
 }
 

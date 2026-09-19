@@ -17,9 +17,9 @@ export const ModuleChipsList: React.FC<ModuleChipsListProps> = ({
   onSelectModule,
 }) => {
   return (
-    <div className="md:col-span-5 flex flex-col justify-between space-y-1 sm:space-y-1.5 bg-[#090616]/90 border border-purple-900/60 p-2 sm:p-2.5">
+    <div className="md:col-span-5 flex flex-col justify-start space-y-1.5 bg-[#090616]/90 border border-purple-900/60 p-2 sm:p-2.5">
       {/* Header */}
-      <div className="flex items-center justify-between border-b border-purple-900/50 pb-1 mb-1">
+      <div className="flex items-center justify-between border-b border-purple-900/50 pb-1 mb-0.5">
         <div className="flex items-center gap-1.5">
           <span className="text-xs">{slotIcon}</span>
           <span className="font-arcade text-[8px] sm:text-[9px] text-pink-300 tracking-wider">
