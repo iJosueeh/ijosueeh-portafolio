@@ -30,13 +30,13 @@ export interface Mission {
   category: string;
   title: string;
   tagline: string;
-  status: "OPERATIVO" | "EN DESARROLLO" | "COMPLETADO";
+  status: "FINALIZADO" | "EN DESARROLLO" | "PROTOTIPO" | "OPERATIVO" | "COMPLETADO" | string;
   objective?: string;
   stack?: string[];
   liveUrl?: string;
   githubUrl?: string;
   repoUrl?: string;
-  type: "ecommerce" | "delivery" | "ai";
+  type: "web" | "ecommerce" | "mobile" | "data" | "delivery" | "ai";
   chapters: MissionChapter[];
 }
 

@@ -142,7 +142,7 @@ export const MissionCard3D: React.FC<MissionCard3DProps> = ({
             </span>
           </NeoPixelButton>
 
-          {mission.githubUrl && (
+          {Boolean(mission.githubUrl && mission.githubUrl.trim()) && (
             <NeoPixelButton
               as="a"
               href={mission.githubUrl}

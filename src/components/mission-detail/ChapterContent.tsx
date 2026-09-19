@@ -39,7 +39,7 @@ export const ChapterContent: React.FC<ChapterContentProps> = ({ chapter, onHover
       )}
 
       {/* Chapter Action Link */}
-      {chapter.actionUrl && (
+      {Boolean(chapter.actionUrl && chapter.actionUrl.trim()) && (
         <div className="pt-1">
           <a
             href={chapter.actionUrl}
