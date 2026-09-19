@@ -87,7 +87,7 @@ export const CharacterSelect: React.FC = () => {
               <div className="inline-flex items-center space-x-1.5 sm:space-x-2 bg-cyan-950/25 border border-cyan-500/40 px-2 sm:px-2.5 py-1 shadow-[2px_2px_0px_#000]">
                 <span aria-hidden="true" className="w-1.5 h-1.5 bg-arcade-cyan shadow-[0_0_6px_#38bdf8]" />
                 <span className="text-[8px] sm:text-[10px] md:text-xs font-mono text-cyan-300 tracking-wider font-semibold line-clamp-1">
-                  ■ ESPECIALIZACIÓN: {PILOT_DATA.specialization}
+                  ■ ENFOQUE: {PILOT_DATA.specialization}
                 </span>
               </div>
             </div>
