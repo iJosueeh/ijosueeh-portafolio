@@ -1,6 +1,6 @@
 import React from 'react';
 import { playRetroBeep } from '../utils/audio';
-import { PILOT_DATA } from '../data/profile';
+import { PILOT_DATA } from '../data/pilot';
 import { NeoPixelCard, NeoPixelButton } from './ui';
 
 export const CharacterSelect: React.FC = () => {
