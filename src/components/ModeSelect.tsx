@@ -180,7 +180,7 @@ export const ModeSelect: React.FC = () => {
                         <path d="M4 2H1v4c0 1.5 1 3 3 3h1v2H3v2h10v-2h-2V9h1c2 0 3-1.5 3-3V2h-3v2h1v2c0 .8-.5 1.5-1.5 1.5H11V2H5v4.5H3.5C2.7 6.5 2.2 5.8 2.2 5V4H4V2z" />
                       </svg>
                     )}
-                    {mode.icon === 'chat' && (
+                    {(mode.icon === 'chat' || mode.icon === 'comms') && (
                       <svg className="w-4 h-4 pixel-sharp" viewBox="0 0 16 16" fill="currentColor">
                         <path d="M7 1h2v4H7V1zm-4 5h2v4H3V6zm8 0h2v4h-2V6zM5 11h6v2H5v-2zm2 2h2v3H7v-3z" />
                       </svg>

@@ -22,19 +22,18 @@ export const SubSpaceForm: React.FC<SubSpaceFormProps> = ({
   onSubmit,
 }) => {
   return (
-    <div className="md:col-span-7 bg-[#0b071c]/95 border border-purple-900/70 p-2.5 sm:p-3.5 relative flex flex-col justify-between">
-      <div className="space-y-1.5 sm:space-y-2">
+    <div className="md:col-span-7 bg-[#0b071c]/95 border border-purple-900/70 p-2 sm:p-3 relative flex flex-col justify-between">
+      <div className="space-y-1 sm:space-y-1.5">
         {/* Dispatcher Header */}
-        <div>
-          <div className="flex items-center gap-1.5 mb-0.5">
-            <span className="font-arcade text-[7px] sm:text-[8px] text-arcade-cyan bg-cyan-950/40 px-1.5 sm:px-2 py-0.5 border border-cyan-800/40 uppercase">
-              EMISOR DE MENSAJES // DIRECT LINK
+        <div className="border-b border-purple-900/50 pb-1 mb-1 sm:mb-1.5">
+          <div className="flex items-center justify-between">
+            <h1 className="font-arcade text-xs sm:text-sm md:text-base text-white tracking-wider uppercase drop-shadow-[0_2px_0_#000]">
+              TRANSMISIÓN AL PILOTO
+            </h1>
+            <span className="font-arcade text-[6.5px] sm:text-[7.5px] text-arcade-cyan bg-cyan-950/40 px-1.5 py-0.5 border border-cyan-800/40 uppercase">
+              DIRECT LINK
             </span>
           </div>
-          <h1 className="font-arcade text-sm sm:text-base md:text-lg text-white tracking-wider uppercase drop-shadow-[0_2px_0_#000]">
-            ENVIAR TRANSMISIÓN AL PILOTO
-          </h1>
-          <div className="h-0.5 w-12 sm:w-16 bg-gradient-to-r from-arcade-magenta to-arcade-cyan mt-0.5 sm:mt-1" />
         </div>
 
         {/* Transmission Form */}
