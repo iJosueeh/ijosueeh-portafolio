@@ -1,5 +1,6 @@
 import React from 'react';
 import { playRetroBeep, type SoundType } from '../../utils/audio';
+import { navigateTo } from '../../utils/navigation';
 
 export interface NeoPixelButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -39,6 +40,10 @@ export const NeoPixelButton: React.FC<NeoPixelButtonProps> = ({
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement & HTMLAnchorElement>) => {
     playRetroBeep(effectiveSound);
+    if (href && !href.startsWith('http') && !target) {
+      e.preventDefault();
+      navigateTo(href);
+    }
     onClick?.(e as React.MouseEvent<HTMLButtonElement>);
   };
 

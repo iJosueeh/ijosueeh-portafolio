@@ -37,8 +37,8 @@ export const NeoPixelCard: React.FC<NeoPixelCardProps> = ({
   return (
     <Component
       className={`relative w-full neo-scifi-panel p-3.5 sm:p-5 md:p-6 ${
-        glowOnHover ? 'hover:border-purple-500/80 transition-colors' : ''
-      } ${className}`}
+        hasViewTransition ? 'view-transition-card' : ''
+      } ${glowOnHover ? 'hover:border-purple-500/80 transition-colors' : ''} ${className}`}
       style={combinedStyle}
       {...rest}
     >

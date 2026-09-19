@@ -22,7 +22,10 @@
     "react-dom": "^19.3.0",
     "tailwindcss": "^4.3.3"
   },
-  "allowScripts": {
-    "esbuild": true
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp"
+    ]
   }
 }

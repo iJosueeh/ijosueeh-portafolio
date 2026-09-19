@@ -132,7 +132,11 @@ export const ContactTerminal: React.FC = () => {
         <div className="flex items-center gap-1.5">
           <a
             href="/modos"
-            onClick={() => play('select')}
+            onClick={(e) => {
+              e.preventDefault();
+              play('select');
+              navigateTo('/modos');
+            }}
             onMouseEnter={() => play('hover')}
             className="text-purple-300 hover:text-arcade-pink flex items-center gap-1 transition-colors cursor-pointer bg-[#130e24]/90 px-2 sm:px-2.5 py-1 border border-purple-900/60 text-[9px] sm:text-xs"
           >
@@ -142,7 +146,11 @@ export const ContactTerminal: React.FC = () => {
 
           <a
             href="/"
-            onClick={() => play('start')}
+            onClick={(e) => {
+              e.preventDefault();
+              play('start');
+              navigateTo('/');
+            }}
             onMouseEnter={() => play('hover')}
             className="text-pink-300 hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer bg-[#1e1338]/90 px-2 sm:px-2.5 py-1 border border-pink-500/40 text-[9px] sm:text-xs font-arcade text-[8px]"
           >

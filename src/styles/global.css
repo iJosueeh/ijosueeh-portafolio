@@ -32,38 +32,42 @@ html, body {
 }
 
 /* Smooth, seamless Astro View Transitions (Eliminating flash of black & synchronized morphing) */
+.view-transition-card {
+  view-transition-name: neo-scifi-main-card;
+}
+
 ::view-transition-group(root) {
-  animation-duration: 0.25s;
+  animation-duration: 0.24s;
   animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 ::view-transition-old(root) {
-  animation: 0.25s cubic-bezier(0.25, 1, 0.5, 1) both fade-out;
+  animation: 0.16s cubic-bezier(0.25, 1, 0.5, 1) both fade-out;
 }
 ::view-transition-new(root) {
-  animation: 0.25s cubic-bezier(0.25, 1, 0.5, 1) both fade-in;
+  animation: 0.22s cubic-bezier(0.25, 1, 0.5, 1) both fade-in;
 }
 
 ::view-transition-group(neo-scifi-main-card) {
-  animation-duration: 0.32s;
+  animation-duration: 0.28s;
   animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 ::view-transition-old(neo-scifi-main-card) {
-  animation: 0.16s ease-out both fade-out;
+  animation: 0.14s ease-out both fade-out;
 }
 ::view-transition-new(neo-scifi-main-card) {
-  animation: 0.24s ease-in both fade-in;
+  animation: 0.22s ease-in both fade-in;
 }
 
 @keyframes fade-out {
-  from { opacity: 1; }
-  to { opacity: 0; }
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.99); }
 }
 
 @keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity: 0; transform: scale(0.99); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 /* Subtle Sci-Fi CRT scanline (Calibrated for crisp mobile readability) */

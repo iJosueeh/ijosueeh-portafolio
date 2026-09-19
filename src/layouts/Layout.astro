@@ -74,8 +74,11 @@ const socialImageURL = new URL(image, Astro.site || 'https://ijosueeh.dev');
     <!-- Persistent CRT Scanline Screen Overlay -->
     <div transition:persist="crt-overlay" aria-hidden="true" class="fixed inset-0 crt-overlay z-40 pointer-events-none"></div>
 
-    <!-- Main Content Slot Wrapper -->
-    <div class="w-full min-h-[100dvh] flex flex-col justify-center items-center px-2 sm:px-4 md:px-6 py-2 sm:py-4 md:py-6 relative z-10">
+    <!-- Main Content Slot Wrapper with Astro View Transitions -->
+    <div
+      transition:animate="fade"
+      class="w-full min-h-[100dvh] flex flex-col justify-center items-center px-2 sm:px-4 md:px-6 py-2 sm:py-4 md:py-6 relative z-10"
+    >
       <slot />
     </div>
   </body>
