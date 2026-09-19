@@ -64,24 +64,52 @@ export const ContactTerminal: React.FC = () => {
       className="w-full max-w-5xl lg:max-w-6xl mx-auto flex flex-col items-center justify-center py-1 px-1 sm:px-2"
       data-purpose="contact-terminal-screen"
     >
-      {/* Top Breadcrumb & Status */}
-      <ScreenBreadcrumb
-        backHref="/modos"
-        backLabel="VOLVER A MÓDULOS"
-        chapterLabel="CH-06 //"
-        statusLabel="CANAL DE COMUNICACIÓN"
-      />
+      {/* Top Breadcrumb & Dual Navigation Bar */}
+      <div className="w-full flex flex-wrap items-center justify-between mb-1.5 sm:mb-2 px-1 gap-1.5 text-[10px] sm:text-xs font-mono select-none">
+        {/* Navigation Back Links */}
+        <div className="flex items-center gap-1.5">
+          <a
+            href="/modos"
+            onClick={() => play('select')}
+            onMouseEnter={() => play('hover')}
+            className="text-purple-300 hover:text-arcade-pink flex items-center gap-1 transition-colors cursor-pointer bg-[#130e24]/90 px-2 sm:px-2.5 py-1 border border-purple-900/60 text-[9px] sm:text-xs"
+          >
+            <span className="font-arcade text-[8px] sm:text-[9px]">&lt;</span>
+            <span>MÓDULOS</span>
+          </a>
+
+          <a
+            href="/"
+            onClick={() => play('start')}
+            onMouseEnter={() => play('hover')}
+            className="text-pink-300 hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer bg-[#1e1338]/90 px-2 sm:px-2.5 py-1 border border-pink-500/40 text-[9px] sm:text-xs font-arcade text-[8px]"
+          >
+            <svg className="w-3 h-3 pixel-sharp shrink-0 text-arcade-cyan" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M8 1c-2 2-3 5-3 8l-3 2v2l3-1 1 3h2l1-3 3 1v-2l-3-2c0-3-1-6-3-8zm0 5a1.5 1.5 0 110 3 1.5 1.5 0 010-3z" />
+            </svg>
+            <span>TRIPULANTE</span>
+          </a>
+        </div>
+
+        {/* Screen Status Pill */}
+        <div className="flex items-center space-x-1.5 text-purple-200/60">
+          <span className="font-arcade text-pink-300 text-[8px] sm:text-[9px]">CH-06 //</span>
+          <span className="font-arcade text-arcade-cyan text-[7.5px] sm:text-[9px] bg-cyan-950/40 px-1.5 sm:px-2 py-0.5 border border-cyan-800/40 uppercase">
+            CANAL DE COMUNICACIÓN
+          </span>
+        </div>
+      </div>
 
       {/* Main Neo-Pixel Sci-Fi Comm Console */}
-      <NeoPixelCard className="p-2.5 sm:p-4 md:p-5">
+      <NeoPixelCard className="p-2 sm:p-4 md:p-5">
         {/* 2-Column Sub-Space Terminal Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-2 sm:gap-3 items-stretch mb-1.5">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-2 sm:gap-3 items-stretch">
           {/* Left Column: Radio Oscilloscope & Direct Frequencies (5 cols) */}
           <div className="md:col-span-5 bg-[#080515]/95 border border-purple-900/70 p-2 sm:p-2.5 flex flex-col justify-between relative overflow-hidden">
             <div className="space-y-1.5 sm:space-y-2">
               {/* Header Status */}
               <div className="flex items-center justify-between border-b border-purple-900/50 pb-1">
-                <span className="font-arcade text-[7px] sm:text-[9px] text-pink-300">
+                <span className="font-arcade text-[7px] sm:text-[8px] text-pink-300">
                   ESTACIÓN // RADIO CUÁNTICA
                 </span>
                 <div className="flex items-center gap-1 bg-[#05030d] px-1.5 py-0.5 border border-emerald-500/60">
@@ -112,40 +140,15 @@ export const ContactTerminal: React.FC = () => {
           />
         </div>
 
-        {/* Bottom Navigation Controls */}
-        <div className="flex flex-col sm:flex-row items-center justify-between border-t border-purple-900/60 pt-1.5 gap-2">
-          {/* Quick Hub Navigation */}
-          <div className="flex items-center space-x-2 text-[7px] sm:text-[8px] font-mono text-purple-300/70 w-full sm:w-auto justify-between sm:justify-start">
-            <span>TERMINAL FINAL</span>
+        {/* Bottom Telemetry Bar */}
+        <div className="flex items-center justify-between border-t border-purple-900/60 pt-1.5 mt-2 text-[7px] sm:text-[8px] font-mono text-purple-300/70">
+          <div className="flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 bg-arcade-magenta" />
+            <span>ESTACIÓN FINAL</span>
             <span className="text-arcade-cyan">//</span>
-            <span className="text-pink-300">TODOS LOS MÓDULOS ACTIVOS</span>
+            <span className="text-pink-300">ENLACE DIRECTO ACTIVO</span>
           </div>
-
-          <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
-            <NeoPixelButton
-              as="a"
-              href="/modos"
-              variant="secondary"
-              soundEffect="select"
-              className="flex-1 sm:flex-initial text-[8px] sm:text-xs py-1.5 sm:py-2"
-            >
-              <span>VOLVER A MÓDULOS</span>
-              <span className="font-mono text-[9px] text-pink-200 hidden sm:inline">[ESC]</span>
-            </NeoPixelButton>
-
-            <NeoPixelButton
-              as="a"
-              href="/"
-              variant="accent"
-              soundEffect="start"
-              className="flex-1 sm:flex-initial text-[8px] sm:text-xs py-1.5 sm:py-2"
-            >
-              <svg className="w-3.5 h-3.5 pixel-sharp shrink-0" viewBox="0 0 16 16" fill="currentColor">
-                <path d="M8 1c-2 2-3 5-3 8l-3 2v2l3-1 1 3h2l1-3 3 1v-2l-3-2c0-3-1-6-3-8zm0 5a1.5 1.5 0 110 3 1.5 1.5 0 010-3z" />
-              </svg>
-              <span>TRIPULANTE</span>
-            </NeoPixelButton>
-          </div>
+          <span className="text-purple-400/60 hidden sm:inline">[ RESPUESTA HABITUAL &lt; 24H ]</span>
         </div>
       </NeoPixelCard>
     </main>
