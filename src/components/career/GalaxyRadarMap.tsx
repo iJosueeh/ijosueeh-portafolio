@@ -19,7 +19,6 @@ export const GalaxyRadarMap: React.FC<GalaxyRadarMapProps> = ({
 }) => {
   const currentStation = stations[activeIdx] || stations[0];
 
-  // Calculate 2D Rocket rotation angle based on flight direction
   const fromPlanet = stations[prevIdx] || stations[0];
   const toPlanet = stations[activeIdx] || stations[0];
   const deltaX = toPlanet.posX - fromPlanet.posX;
@@ -30,15 +29,15 @@ export const GalaxyRadarMap: React.FC<GalaxyRadarMapProps> = ({
       : 0;
 
   return (
-    <div className="w-full h-[125px] sm:h-[145px] md:h-[160px] bg-[#070412]/95 border border-purple-900/70 relative overflow-hidden mb-1.5">
+    <div className="w-full h-[105px] sm:h-[130px] md:h-[155px] bg-[#070412]/95 border border-purple-900/70 relative overflow-hidden mb-1.5">
       {/* Spatial Holographic Grid */}
-      <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+      <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
 
       {/* Coordinate Marks */}
-      <div className="absolute top-1 left-2 text-[8px] font-mono text-purple-400/60">
+      <div className="absolute top-1 left-2 text-[7px] sm:text-[8px] font-mono text-purple-400/60">
         [ SECTOR 04 // GALAXY COORD GRID ]
       </div>
-      <div className="absolute top-1 right-2 text-[8px] font-arcade text-arcade-cyan">
+      <div className="absolute top-1 right-2 text-[7px] sm:text-[8px] font-arcade text-arcade-cyan">
         {currentStation.status}
       </div>
 
@@ -60,231 +59,108 @@ export const GalaxyRadarMap: React.FC<GalaxyRadarMapProps> = ({
           d="M 18 55 Q 34 16 50 25 Q 66 32 82 55"
           fill="none"
           stroke="#f43f85"
-          strokeWidth="0.35"
-          opacity="0.8"
+          strokeWidth="0.3"
+          opacity="0.4"
         />
       </svg>
 
-      {/* 3 PLANETARY BODIES */}
+      {/* 3 Interactive Planetary Orbit Stations */}
       {stations.map((st, idx) => {
-        const isActive = activeIdx === idx;
+        const isSelected = activeIdx === idx;
         return (
           <button
             key={st.id}
             onClick={() => onSelectStation(idx)}
             onMouseEnter={() => playRetroBeep('hover')}
             type="button"
-            className={`group absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center transition-all duration-300 cursor-pointer z-10 ${
-              isActive
-                ? 'scale-110 z-20'
-                : 'opacity-75 hover:opacity-100 hover:scale-105'
-            }`}
-            style={{
-              left: `${st.posX}%`,
-              top: `${st.posY}%`,
-            }}
+            className="absolute z-20 transform -translate-x-1/2 -translate-y-1/2 focus:outline-none cursor-pointer group"
+            style={{ left: `${st.posX}%`, top: `${st.posY}%` }}
           >
-            {/* Planetary Artwork Miniature */}
-            <div className="relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
-              {isActive && (
-                <div
-                  className="absolute inset-0 rounded-full animate-ping opacity-40"
-                  style={{ backgroundColor: st.color }}
-                />
+            {/* Target Reticle & Orbit Rings */}
+            <div className="relative flex items-center justify-center">
+              {isSelected && (
+                <>
+                  <div
+                    className="absolute -inset-2.5 rounded-full border border-arcade-magenta animate-ping opacity-60"
+                    style={{ borderColor: st.color }}
+                  />
+                  <div
+                    className="absolute -inset-4 rounded-full border border-dashed border-arcade-cyan animate-spin opacity-50"
+                    style={{ animationDuration: '8s' }}
+                  />
+                </>
               )}
 
-              {st.illustration === 'genesis-planet' && (
-                <svg
-                  className="w-full h-full pixel-sharp"
-                  viewBox="0 0 64 64"
-                  fill="none"
-                >
-                  <circle
-                    cx="32"
-                    cy="32"
-                    r="14"
-                    fill="#201138"
-                    stroke="#d8b4fe"
-                    strokeWidth="2"
-                  />
-                  <circle cx="28" cy="26" r="3" fill="#9333ea" />
-                  <circle cx="38" cy="38" r="2.5" fill="#9333ea" />
-                  <circle cx="24" cy="36" r="2" fill="#d8b4fe" />
-                  <circle
-                    cx="32"
-                    cy="32"
-                    r="13"
-                    stroke="#c084fc"
-                    strokeDasharray="3 3"
-                  />
-                </svg>
-              )}
+              {/* Planet Pixel Core Artwork */}
+              <div
+                className={`w-9 h-9 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition-all ${
+                  isSelected
+                    ? 'scale-115 shadow-[0_0_15px_rgba(244,63,133,0.6)]'
+                    : 'scale-90 opacity-70 group-hover:opacity-100 group-hover:scale-100'
+                }`}
+                style={{ backgroundColor: `${st.color}22`, border: `2px solid ${st.color}` }}
+              >
+                {st.illustration === 'genesis-planet' && (
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 pixel-sharp" viewBox="0 0 16 16" fill="none">
+                    <circle cx="8" cy="8" r="6" fill="#38bdf8" />
+                    <circle cx="6" cy="6" r="2" fill="#0284c7" />
+                    <circle cx="10" cy="9" r="1.5" fill="#0284c7" />
+                    <ellipse cx="8" cy="8" rx="7" ry="2" stroke="#ffffff" strokeWidth="0.75" />
+                  </svg>
+                )}
 
-              {st.illustration === 'orbital-station' && (
-                <svg
-                  className="w-full h-full pixel-sharp"
-                  viewBox="0 0 64 64"
-                  fill="none"
-                >
-                  <circle
-                    cx="32"
-                    cy="32"
-                    r="12"
-                    fill="#0d1f38"
-                    stroke="#38bdf8"
-                    strokeWidth="2"
-                  />
-                  <rect x="25" y="25" width="14" height="14" fill="#0369a1" />
-                  <line
-                    x1="10"
-                    y1="32"
-                    x2="54"
-                    y2="32"
-                    stroke="#38bdf8"
-                    strokeWidth="2"
-                  />
-                  <rect
-                    x="12"
-                    y="28"
-                    width="6"
-                    height="8"
-                    fill="#1e293b"
-                    stroke="#38bdf8"
-                    strokeWidth="1"
-                  />
-                  <rect
-                    x="46"
-                    y="28"
-                    width="6"
-                    height="8"
-                    fill="#1e293b"
-                    stroke="#38bdf8"
-                    strokeWidth="1"
-                  />
-                  <circle cx="32" cy="32" r="2.5" fill="#f472b6" />
-                </svg>
-              )}
+                {st.illustration === 'orbital-station' && (
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 pixel-sharp" viewBox="0 0 16 16" fill="none">
+                    <rect x="5" y="5" width="6" height="6" fill="#f43f85" />
+                    <rect x="7" y="2" width="2" height="12" fill="#f59e0b" />
+                    <rect x="2" y="7" width="12" height="2" fill="#f59e0b" />
+                    <circle cx="8" cy="8" r="1.5" fill="#ffffff" />
+                  </svg>
+                )}
 
-              {st.illustration === 'gas-giant' && (
-                <svg
-                  className="w-full h-full pixel-sharp"
-                  viewBox="0 0 64 64"
-                  fill="none"
-                >
-                  <circle
-                    cx="32"
-                    cy="32"
-                    r="15"
-                    fill="#1b1035"
-                    stroke="#f43f85"
-                    strokeWidth="2"
-                  />
-                  <circle cx="32" cy="32" r="10" fill="#f43f85" opacity="0.8" />
-                  <ellipse
-                    cx="32"
-                    cy="32"
-                    rx="24"
-                    ry="5"
-                    stroke="#38bdf8"
-                    strokeWidth="1.5"
-                    transform="rotate(-20 32 32)"
-                  />
-                  <circle cx="30" cy="28" r="2.5" fill="#fce7f3" />
-                </svg>
-              )}
-            </div>
+                {st.illustration === 'gas-giant' && (
+                  <svg className="w-5 h-5 sm:w-6 sm:h-6 pixel-sharp" viewBox="0 0 16 16" fill="none">
+                    <circle cx="8" cy="8" r="6" fill="#9333ea" />
+                    <ellipse cx="8" cy="8" rx="8" ry="3" stroke="#f472b6" strokeWidth="0.8" transform="rotate(-20 8 8)" />
+                    <path d="M 3 8 Q 8 6 13 8" stroke="#d8b4fe" strokeWidth="0.6" fill="none" />
+                  </svg>
+                )}
+              </div>
 
-            {/* Planet Label Capsule */}
-            <div
-              className={`px-1.5 py-0.5 border text-center shadow-sm flex flex-col items-center ${
-                isActive
-                  ? 'bg-[#1b1038] border-pink-300 text-white shadow-[0_0_8px_rgba(244,63,133,0.6)]'
-                  : 'bg-[#0e0920]/90 border-purple-900/60 text-purple-300/80'
-              }`}
-            >
-              <span className="font-arcade text-[7px] sm:text-[8px] tracking-wider uppercase">
-                {st.name}
-              </span>
-              <span
-                className={`font-mono text-[7px] sm:text-[8px] font-bold ${
-                  isActive ? 'text-pink-300' : 'text-purple-400/60'
+              {/* Station Callsign Tag */}
+              <div
+                className={`absolute -bottom-4 whitespace-nowrap text-[7px] sm:text-[8px] font-arcade px-1 py-0.5 border ${
+                  isSelected
+                    ? 'bg-arcade-magenta text-white border-pink-300 font-bold shadow-[2px_2px_0px_#000]'
+                    : 'bg-[#090514]/90 text-purple-300/80 border-purple-900/60'
                 }`}
               >
-                {st.period}
-              </span>
+                {st.name}
+              </div>
             </div>
           </button>
         );
       })}
 
-      {/* 2D ANIMATED PIXEL ROCKET */}
+      {/* Animated 2D Hyperspace Rocket */}
       <div
-        className="absolute z-30 pointer-events-none -translate-x-1/2 -translate-y-1/2 transition-all duration-600 ease-[cubic-bezier(0.34,1.56,0.64,1)] flex flex-col items-center"
+        className={`absolute z-30 pointer-events-none transition-all duration-700 ease-out flex items-center justify-center ${
+          isFlying ? 'scale-120' : 'scale-100'
+        }`}
         style={{
           left: `${currentStation.posX}%`,
-          top: `${currentStation.posY - 14}%`,
+          top: `${currentStation.posY - 12}%`,
+          transform: `translate(-50%, -50%) rotate(${flightAngle}deg)`,
         }}
       >
-        {/* Status Reticle */}
-        <div className="bg-[#0b071e]/95 border border-pink-300 px-1 py-0.5 text-[6px] sm:text-[7px] font-arcade text-pink-200 uppercase mb-0.5 shadow-[0_0_8px_rgba(244,63,133,0.8)] flex items-center gap-1 whitespace-nowrap">
-          <span className="w-1 h-1 bg-arcade-magenta rounded-full animate-ping"></span>
-          <span>{isFlying ? 'SALTO...' : 'ACOPLADO'}</span>
-        </div>
-
-        {/* Spaceship with Dynamic Angle Rotation & Plasma Flame */}
-        <div
-          className="relative flex items-center justify-center transition-transform duration-500"
-          style={{
-            transform: isFlying ? `rotate(${flightAngle}deg)` : 'rotate(0deg)',
-          }}
-        >
-          <svg
-            className="w-6 h-6 sm:w-7 sm:h-7 pixel-sharp filter drop-shadow-[0_0_6px_#38bdf8]"
-            viewBox="0 0 32 32"
-            fill="none"
-          >
-            <path
-              d="M16 2 L22 10 L22 22 L16 28 L10 22 L10 10 Z"
-              fill="#1e1338"
-              stroke="#38bdf8"
-              strokeWidth="1.5"
-            />
-            <path d="M16 4 L20 11 L16 16 L12 11 Z" fill="#f43f85" />
-            <circle
-              cx="16"
-              cy="12"
-              r="2.5"
-              fill="#38bdf8"
-              stroke="#ffffff"
-              strokeWidth="0.5"
-            />
-            <path
-              d="M10 16 L4 24 L10 22 Z"
-              fill="#9333ea"
-              stroke="#d8b4fe"
-              strokeWidth="1"
-            />
-            <path
-              d="M22 16 L28 24 L22 22 Z"
-              fill="#9333ea"
-              stroke="#d8b4fe"
-              strokeWidth="1"
-            />
-            <rect
-              x="13"
-              y="27"
-              width="6"
-              height="3"
-              fill="#070410"
-              stroke="#f472b6"
-              strokeWidth="1"
-            />
+        <div className="relative">
+          <svg className="w-5 h-5 sm:w-6 sm:h-6 pixel-sharp drop-shadow-[0_0_8px_#f43f85]" viewBox="0 0 16 16" fill="none">
+            <path d="M8 1 L11 7 L11 13 L8 15 L5 13 L5 7 Z" fill="#ffffff" />
+            <path d="M7 3 H9 V7 H7 Z" fill="#f43f85" />
+            <path d="M5 9 L2 12 L5 13 Z" fill="#38bdf8" />
+            <path d="M11 9 L14 12 L11 13 Z" fill="#38bdf8" />
+            <circle cx="8" cy="8" r="1.5" fill="#070410" />
           </svg>
-
-          {/* Plasma Engine Flame */}
-          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center">
-            <div className="w-1.5 h-2.5 bg-gradient-to-b from-arcade-cyan via-arcade-magenta to-transparent animate-bounce opacity-90 rounded-full blur-[0.5px]"></div>
-          </div>
         </div>
       </div>
     </div>
