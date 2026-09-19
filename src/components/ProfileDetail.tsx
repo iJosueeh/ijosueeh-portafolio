@@ -96,8 +96,8 @@ export const ProfileDetail: React.FC = () => {
         {/* Mobile Mini Pilot Bar (Only on mobile < md) */}
         <div className="md:hidden flex items-center justify-between p-1.5 bg-[#0c071e] border border-purple-900/60 mb-2">
           <div className="flex items-center gap-2">
-            <div className="w-7 h-7 overflow-hidden bg-[#0a0618] border border-arcade-magenta shrink-0">
-              <img src="/hero-imagen.png" alt="Josué" className="w-full h-full object-cover pixel-sharp" />
+            <div className="w-9 h-9 aspect-square overflow-hidden bg-[#0a0618] border border-arcade-magenta shrink-0">
+              <img src="/hero-imagen.png" alt="Josué" className="w-full h-full object-cover object-center pixel-sharp" />
             </div>
             <div className="flex flex-col">
               <span className="font-arcade text-[8px] text-white">IJOSUEEH</span>
@@ -111,20 +111,22 @@ export const ProfileDetail: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-6 items-center mb-2 sm:mb-3">
           {/* Left Column: Pilot ID Mini Portrait & Quick Stats (Desktop only) */}
           <div className="hidden md:flex md:col-span-4 flex-col items-center justify-center">
-            <div className="w-full max-w-[170px] sm:max-w-[190px] md:max-w-[210px] relative bg-arcade-panel/90 border-2 border-purple-900/70 p-2 shadow-[4px_4px_0px_#000000]">
+            <div className="w-full max-w-[160px] md:max-w-[190px] lg:max-w-[210px] relative bg-arcade-panel/90 border-2 border-purple-900/70 p-2 shadow-[4px_4px_0px_#000000]">
               {/* Badge: TRIPULANTE */}
               <div className="absolute -top-2.5 left-2 z-20 bg-gradient-to-r from-arcade-magenta to-pink-500 text-white font-arcade text-[8px] px-2 py-0.5 tracking-wider uppercase font-bold border border-purple-950 shadow-[2px_2px_0px_#000000]">
                 PILOTO 01
               </div>
 
-              {/* Portrait Image */}
-              <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#0a0618] border border-purple-800/40">
+              {/* Portrait Image (1:1 Original Proportions) */}
+              <div className="relative aspect-square w-full overflow-hidden bg-[#0a0618] border border-purple-800/40">
                 <img
                   alt="Josué - Ingeniero de Software"
-                  className="w-full h-full object-cover pixel-sharp transition-transform duration-300 hover:scale-105"
+                  className="w-full h-full object-cover object-center pixel-sharp transition-transform duration-300 hover:scale-105"
                   src="/hero-imagen.png"
+                  width={480}
+                  height={480}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0618] via-transparent to-transparent opacity-40 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0618] via-transparent to-transparent opacity-35 pointer-events-none" />
               </div>
 
               {/* Pilot Meta */}
@@ -257,7 +259,8 @@ export const ProfileDetail: React.FC = () => {
               soundType="select"
               className="flex-1 sm:flex-initial text-[8px] sm:text-xs py-1.5 sm:py-2"
             >
-              <span>{activeTab === chapters.length - 1 ? 'REINICIAR' : 'SIGUIENTE'} [ENTER]</span>
+              <span>{activeTab === chapters.length - 1 ? 'REINICIAR' : 'SIGUIENTE'}</span>
+              <span className="font-mono text-[9px] text-pink-200 hidden sm:inline">[ENTER]</span>
               <span className="font-bold">→</span>
             </NeoPixelButton>
           </div>

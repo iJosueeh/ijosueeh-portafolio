@@ -211,7 +211,8 @@ export const ModeSelect: React.FC = () => {
               className="w-full sm:w-auto min-h-[38px] sm:min-h-[42px] px-4 sm:px-6 text-[9px] sm:text-xs"
             >
               <span>▶</span>
-              <span>EJECUTAR MÓDULO [ENTER]</span>
+              <span>EJECUTAR MÓDULO</span>
+              <span className="font-mono text-[9px] text-pink-200 hidden sm:inline">[ENTER]</span>
             </NeoPixelButton>
           </div>
         </div>

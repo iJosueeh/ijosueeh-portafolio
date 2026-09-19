@@ -93,21 +93,23 @@ export const SkillsLoadout: React.FC = () => {
 
         {/* Bottom Control Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between border-t border-purple-900/60 pt-2 gap-2">
-          <div className="flex items-center space-x-2 text-[9px] font-mono text-purple-300/70">
+          <div className="hidden sm:flex items-center space-x-2 text-[9px] font-mono text-purple-300/70">
             <span>ATAJOS:</span>
             <span className="bg-[#1b1335] px-1.5 py-0.5 border border-purple-900 text-pink-300">[1-4] RANURAS</span>
             <span className="bg-[#1b1335] px-1.5 py-0.5 border border-purple-900 text-arcade-cyan">[▲▼] CHIPS</span>
             <span className="bg-[#1b1335] px-1.5 py-0.5 border border-purple-900 text-purple-200">[ESC] SALIR</span>
           </div>
 
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-2.5 w-full sm:w-auto justify-end">
             <NeoPixelButton
               href="/proyectos"
               variant="primary"
               soundType="start"
+              className="w-full sm:w-auto min-h-[38px] sm:min-h-[42px] px-4 sm:px-5 text-[9px] sm:text-xs"
               icon={<span>▶</span>}
             >
-              VER MISIONES EN VIVO [ENTER]
+              <span>VER MISIONES EN VIVO</span>
+              <span className="font-mono text-[9px] text-pink-200 hidden sm:inline">[ENTER]</span>
             </NeoPixelButton>
           </div>
         </div>

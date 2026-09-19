@@ -100,14 +100,15 @@ export const AchievementsVault: React.FC = () => {
           </div>
 
           {/* Action Navigation */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
             <NeoPixelButton
               variant="secondary"
               soundEffect="hover"
               onClick={handleNext}
-              className="text-xs"
+              className="text-[10px] sm:text-xs flex-1 sm:flex-initial min-h-[38px] sm:min-h-0"
             >
-              SIGUIENTE TROFEO [▶]
+              <span>SIGUIENTE TROFEO</span>
+              <span className="font-mono text-[9px] hidden sm:inline">[▶]</span>
             </NeoPixelButton>
 
             <NeoPixelButton
@@ -115,9 +116,10 @@ export const AchievementsVault: React.FC = () => {
               href="/contacto"
               variant="primary"
               soundEffect="start"
-              className="text-[10px] sm:text-xs"
+              className="text-[10px] sm:text-xs flex-1 sm:flex-initial min-h-[38px] sm:min-h-0"
             >
-              CANAL DE CONTACTO [ENTER]
+              <span>CANAL DE CONTACTO</span>
+              <span className="font-mono text-[9px] text-pink-200 hidden sm:inline">[ENTER]</span>
             </NeoPixelButton>
           </div>
         </div>

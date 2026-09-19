@@ -20,24 +20,24 @@ export const ContactFrequencyList: React.FC<ContactFrequencyListProps> = ({
         CANALES DE CONTACTO:
       </div>
 
-      {/* 4 Direct Frequency Channels: 2-col on mobile (< sm), 1-col on desktop (>= sm) */}
-      <div className="grid grid-cols-2 sm:flex sm:flex-col gap-1 sm:gap-1.5">
+      {/* 4 Direct Frequency Channels: Stacked vertically for clear visibility on all viewports */}
+      <div className="flex flex-col gap-1.5">
         {/* Email Direct & Copy */}
         <button
           onClick={onCopyEmail}
           onMouseEnter={onHoverSound}
           type="button"
-          className="w-full bg-[#140d2d] hover:bg-[#1f1542] border border-purple-900/60 hover:border-pink-300 p-1.5 flex items-center justify-between text-left transition-all cursor-pointer group"
+          className="w-full bg-[#140d2d] hover:bg-[#1f1542] border border-purple-900/60 hover:border-pink-300 p-2 sm:p-1.5 flex items-center justify-between text-left transition-all cursor-pointer group min-h-[40px] sm:min-h-0"
         >
-          <div className="flex items-center gap-1.5 min-w-0">
-            <span className="text-xs sm:text-sm">✉️</span>
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="text-sm">✉️</span>
             <div className="flex flex-col min-w-0">
-              <span className="text-[6px] sm:text-[7px] font-arcade text-pink-300">EMAIL</span>
-              <span className="text-[8px] sm:text-[9px] font-mono text-white truncate">{emailAddress}</span>
+              <span className="text-[7px] font-arcade text-pink-300">EMAIL DIRECTO</span>
+              <span className="text-[9px] sm:text-[10px] font-mono text-white truncate">{emailAddress}</span>
             </div>
           </div>
           <span
-            className={`text-[6px] sm:text-[7px] font-arcade px-1 py-0.5 border ${
+            className={`text-[7px] font-arcade px-2 py-0.5 border shrink-0 ml-2 ${
               copiedEmail
                 ? 'bg-emerald-500 text-white border-emerald-300 animate-bounce'
                 : 'bg-[#090616] text-arcade-cyan border-cyan-800 group-hover:border-pink-300'
@@ -53,16 +53,16 @@ export const ContactFrequencyList: React.FC<ContactFrequencyListProps> = ({
           target="_blank"
           rel="noopener noreferrer"
           onMouseEnter={onHoverSound}
-          className="w-full bg-[#140d2d] hover:bg-[#1f1542] border border-purple-900/60 hover:border-arcade-cyan p-1.5 flex items-center justify-between transition-all cursor-pointer"
+          className="w-full bg-[#140d2d] hover:bg-[#1f1542] border border-purple-900/60 hover:border-arcade-cyan p-2 sm:p-1.5 flex items-center justify-between transition-all cursor-pointer min-h-[38px] sm:min-h-0"
         >
-          <div className="flex items-center gap-1.5 min-w-0">
-            <span className="text-xs sm:text-sm">💼</span>
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="text-sm">💼</span>
             <div className="flex flex-col min-w-0">
-              <span className="text-[6px] sm:text-[7px] font-arcade text-arcade-cyan">LINKEDIN</span>
-              <span className="text-[8px] sm:text-[9px] font-mono text-purple-200 truncate">PERFIL</span>
+              <span className="text-[7px] font-arcade text-arcade-cyan">LINKEDIN</span>
+              <span className="text-[9px] sm:text-[10px] font-mono text-purple-200 truncate">Perfil Profesional</span>
             </div>
           </div>
-          <span className="text-[7px] sm:text-[8px] font-arcade text-arcade-cyan font-bold">&gt;&gt;</span>
+          <span className="text-[8px] font-arcade text-arcade-cyan font-bold">&gt;&gt;</span>
         </a>
 
         {/* GitHub */}
@@ -71,16 +71,16 @@ export const ContactFrequencyList: React.FC<ContactFrequencyListProps> = ({
           target="_blank"
           rel="noopener noreferrer"
           onMouseEnter={onHoverSound}
-          className="w-full bg-[#140d2d] hover:bg-[#1f1542] border border-purple-900/60 hover:border-arcade-magenta p-1.5 flex items-center justify-between transition-all cursor-pointer"
+          className="w-full bg-[#140d2d] hover:bg-[#1f1542] border border-purple-900/60 hover:border-arcade-magenta p-2 sm:p-1.5 flex items-center justify-between transition-all cursor-pointer min-h-[38px] sm:min-h-0"
         >
-          <div className="flex items-center gap-1.5 min-w-0">
-            <span className="text-xs sm:text-sm">💻</span>
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="text-sm">💻</span>
             <div className="flex flex-col min-w-0">
-              <span className="text-[6px] sm:text-[7px] font-arcade text-pink-300">GITHUB</span>
-              <span className="text-[8px] sm:text-[9px] font-mono text-purple-200 truncate">CÓDIGO</span>
+              <span className="text-[7px] font-arcade text-pink-300">GITHUB</span>
+              <span className="text-[9px] sm:text-[10px] font-mono text-purple-200 truncate">Repositorios & Código</span>
             </div>
           </div>
-          <span className="text-[7px] sm:text-[8px] font-arcade text-pink-300 font-bold">&gt;&gt;</span>
+          <span className="text-[8px] font-arcade text-pink-300 font-bold">&gt;&gt;</span>
         </a>
 
         {/* CV Download */}
@@ -90,16 +90,16 @@ export const ContactFrequencyList: React.FC<ContactFrequencyListProps> = ({
           target="_blank"
           rel="noopener noreferrer"
           onMouseEnter={onHoverSound}
-          className="w-full bg-[#140d2d] hover:bg-[#1f1542] border border-purple-900/60 hover:border-emerald-400 p-1.5 flex items-center justify-between transition-all cursor-pointer"
+          className="w-full bg-[#140d2d] hover:bg-[#1f1542] border border-purple-900/60 hover:border-emerald-400 p-2 sm:p-1.5 flex items-center justify-between transition-all cursor-pointer min-h-[38px] sm:min-h-0"
         >
-          <div className="flex items-center gap-1.5 min-w-0">
-            <span className="text-xs sm:text-sm">📄</span>
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="text-sm">📄</span>
             <div className="flex flex-col min-w-0">
-              <span className="text-[6px] sm:text-[7px] font-arcade text-emerald-400">FICHA CV</span>
-              <span className="text-[8px] sm:text-[9px] font-mono text-purple-200 truncate">PDF</span>
+              <span className="text-[7px] font-arcade text-emerald-400">DESCARGAR CV</span>
+              <span className="text-[9px] sm:text-[10px] font-mono text-purple-200 truncate">Curriculum Vitae (PDF)</span>
             </div>
           </div>
-          <span className="text-[7px] sm:text-[8px] font-arcade text-emerald-400 font-bold">&gt;&gt;</span>
+          <span className="text-[8px] font-arcade text-emerald-400 font-bold">&gt;&gt;</span>
         </a>
       </div>
     </div>

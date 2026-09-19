@@ -26,20 +26,20 @@ export const CharacterSelect: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-6 md:gap-8 items-center">
           {/* Left Column: Pixel Art Character Portrait Frame */}
           <div className="md:col-span-5 flex flex-col items-center justify-center">
-            <div className="w-full max-w-[110px] sm:max-w-[170px] md:max-w-[220px] relative bg-arcade-panel/90 border-2 border-purple-900/60 p-1.5 sm:p-2 shadow-[3px_3px_0px_#000000]">
+            <div className="w-full max-w-[120px] sm:max-w-[170px] md:max-w-[220px] relative bg-arcade-panel/90 border-2 border-purple-900/60 p-1.5 sm:p-2 shadow-[3px_3px_0px_#000000]">
               {/* Badge: P1 LISTO */}
               <div className="absolute -top-2 left-1.5 sm:left-2 z-20 bg-gradient-to-r from-arcade-magenta to-pink-500 text-white font-arcade text-[7px] sm:text-[9px] px-1.5 py-0.5 sm:px-2.5 sm:py-1 tracking-wider uppercase font-bold border border-purple-950 shadow-[2px_2px_0px_#000000] select-none">
                 {PILOT_DATA.status}
               </div>
 
-              {/* Portrait Image */}
-              <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#0a0618] border border-purple-800/40">
+              {/* Portrait Image (1:1 Original Proportions) */}
+              <div className="relative aspect-square w-full overflow-hidden bg-[#0a0618] border border-purple-800/40">
                 <img
                   alt={`Retrato oficial del tripulante ${PILOT_DATA.name}`}
-                  className="w-full h-full object-cover pixel-sharp transition-transform duration-300 hover:scale-105"
+                  className="w-full h-full object-cover object-center pixel-sharp transition-transform duration-300 hover:scale-105"
                   src={PILOT_DATA.avatar}
                   width={480}
-                  height={640}
+                  height={480}
                   loading="eager"
                   fetchPriority="high"
                 />

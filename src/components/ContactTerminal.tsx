@@ -129,7 +129,8 @@ export const ContactTerminal: React.FC = () => {
               soundEffect="select"
               className="flex-1 sm:flex-initial text-[8px] sm:text-xs py-1.5 sm:py-2"
             >
-              VOLVER A MÓDULOS [ESC]
+              <span>VOLVER A MÓDULOS</span>
+              <span className="font-mono text-[9px] text-pink-200 hidden sm:inline">[ESC]</span>
             </NeoPixelButton>
 
             <NeoPixelButton

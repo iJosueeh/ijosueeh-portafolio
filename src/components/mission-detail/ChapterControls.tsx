@@ -47,9 +47,11 @@ export const ChapterControls: React.FC<ChapterControlsProps> = ({
         <button
           type="button"
           onClick={onBackToProjects}
-          className="text-[9px] sm:text-[10px] font-mono text-purple-300/70 hover:text-white transition-colors cursor-pointer py-1 px-2 border border-transparent hover:border-purple-800"
+          className="text-[9px] sm:text-[10px] font-mono text-purple-300/70 hover:text-white transition-colors cursor-pointer py-1 px-2 border border-transparent hover:border-purple-800 flex items-center gap-1"
         >
-          ESC // MISIONES
+          <span className="font-arcade text-[8px]">&lt;</span>
+          <span className="hidden sm:inline">ESC // </span>
+          <span>MISIONES</span>
         </button>
 
         <NeoPixelButton

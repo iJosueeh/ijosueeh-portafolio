@@ -97,7 +97,8 @@ export const SubSpaceForm: React.FC<SubSpaceFormProps> = ({
             className="w-full py-2 sm:py-2.5 text-[9px] sm:text-xs"
           >
             <span>📡</span>
-            <span>{sentStatus ? '¡TRANSMISIÓN ENVIADA!' : 'DESPACHAR TRANSMISIÓN [ENTER]'}</span>
+            <span>{sentStatus ? '¡TRANSMISIÓN ENVIADA!' : 'DESPACHAR TRANSMISIÓN'}</span>
+            {!sentStatus && <span className="font-mono text-[9px] text-pink-200 hidden sm:inline">[ENTER]</span>}
           </NeoPixelButton>
         </form>
       </div>
