@@ -3,7 +3,7 @@ import { useRetroAudio } from '../hooks/useRetroAudio';
 import { useKeyboardNav } from '../hooks/useKeyboardNav';
 import { navigateTo } from '../utils/navigation';
 import { CONTACT_CONFIG } from '../data/contact';
-import { ScreenBreadcrumb, NeoPixelCard, NeoPixelButton } from './ui';
+import { NeoPixelCard } from './ui';
 import { RadioOscilloscope } from './contact/RadioOscilloscope';
 import { ContactFrequencyList } from './contact/ContactFrequencyList';
 import { SubSpaceForm, type TransmissionStatus } from './contact/SubSpaceForm';

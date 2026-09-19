@@ -1,6 +1,6 @@
 // Audio Architecture: Web Audio 8-bit Synthesizer adhering to SOLID (SRP & OCP)
 
-export type SoundType = 'hover' | 'select' | 'coin' | 'start' | 'warp' | 'error';
+export type SoundType = 'hover' | 'select' | 'coin' | 'start' | 'warp' | 'error' | 'laser';
 export type SoundStrategy = (ctx: AudioContext, now: number) => void;
 
 // --- State & Reactive Store for React 19 (useSyncExternalStore) ---
@@ -139,6 +139,16 @@ export const SOUND_PRESETS: Record<SoundType, SoundStrategy> = {
       endFreq: 1200,
       gain: 0.08,
       duration: 0.28,
+    });
+  },
+
+  laser: (ctx, now) => {
+    playTone(ctx, now, {
+      type: 'sawtooth',
+      startFreq: 880,
+      endFreq: 110,
+      gain: 0.08,
+      duration: 0.18,
     });
   },
 
