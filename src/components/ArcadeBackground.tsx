@@ -21,14 +21,15 @@ export const ArcadeBackground: React.FC = () => {
 
     window.addEventListener('resize', handleResize);
 
-    // Multi-layer Pixel Stars
-    const starCount = 85;
+    // Multi-layer Pixel Stars (Calibrated to reduce mobile clutter)
+    const isMobile = width < 640;
+    const starCount = isMobile ? 36 : 75;
     const stars = Array.from({ length: starCount }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
       size: Math.random() > 0.85 ? 2 : 1, // 1px or 2px pixel dots
-      alpha: Math.random() * 0.7 + 0.2,
-      speed: Math.random() * 0.015 + 0.005,
+      alpha: Math.random() * (isMobile ? 0.4 : 0.6) + 0.15,
+      speed: Math.random() * 0.012 + 0.004,
       layer: Math.random() > 0.5 ? 1 : 2,
       color:
         Math.random() > 0.65

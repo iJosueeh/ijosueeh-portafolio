@@ -83,7 +83,7 @@ export const MissionCard3D: React.FC<MissionCard3DProps> = ({
           className="w-full bg-[#090615] border border-purple-900/60 p-1.5 sm:p-2.5 mb-1.5 sm:mb-2 flex items-center justify-center relative overflow-hidden"
           data-purpose="pixel-illustration"
         >
-          <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:8px_8px]" />
+          <div className="absolute inset-0 opacity-5 sm:opacity-15 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:8px_8px] pointer-events-none" />
 
           <MissionArtwork type={mission.type} className="w-full max-w-sm h-18 sm:h-22 md:h-26 pixel-sharp z-10" />
 

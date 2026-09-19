@@ -34,20 +34,22 @@ export const ScreenBreadcrumb: React.FC<ScreenBreadcrumbProps> = ({
         href={backHref}
         onClick={() => playRetroBeep('select')}
         onMouseEnter={() => playRetroBeep('hover')}
-        className="text-purple-300 hover:text-arcade-pink flex items-center gap-1.5 transition-colors cursor-pointer bg-[#130e24]/80 px-2.5 py-1 border border-purple-900/60"
+        className="text-purple-300 hover:text-arcade-pink flex items-center gap-1 sm:gap-1.5 transition-colors cursor-pointer bg-[#130e24]/80 px-2 sm:px-2.5 py-1 border border-purple-900/60 text-[9px] sm:text-xs"
       >
-        <span className="font-arcade text-[9px]">&lt;</span> {backLabel}
+        <span className="font-arcade text-[8px] sm:text-[9px]">&lt;</span>
+        <span className="hidden sm:inline">{backLabel}</span>
+        <span className="sm:hidden">{backLabel.startsWith('VOLVER A ') ? backLabel.replace('VOLVER A ', '') : backLabel}</span>
       </a>
 
       {/* Screen Title / Status Pill */}
-      <div className="flex items-center space-x-2 text-purple-200/60">
+      <div className="flex items-center space-x-1.5 sm:space-x-2 text-purple-200/60">
         {code && (
-          <span className="font-arcade text-pink-300 text-[9px]">
+          <span className="font-arcade text-pink-300 text-[8px] sm:text-[9px]">
             {code}
           </span>
         )}
         {title && (
-          <span className="font-arcade text-arcade-cyan text-[9px] bg-cyan-950/40 px-2 py-0.5 border border-cyan-800/40 uppercase">
+          <span className="font-arcade text-arcade-cyan text-[7.5px] sm:text-[9px] bg-cyan-950/40 px-1.5 sm:px-2 py-0.5 border border-cyan-800/40 uppercase truncate max-w-[150px] sm:max-w-none">
             {title}
           </span>
         )}

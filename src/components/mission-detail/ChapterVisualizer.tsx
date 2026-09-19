@@ -10,7 +10,7 @@ export const ChapterVisualizer: React.FC<ChapterVisualizerProps> = ({ missionTyp
   return (
     <div className="md:col-span-6">
       <div className="w-full bg-[#090615] border border-purple-900/60 p-1.5 sm:p-2.5 relative overflow-hidden flex flex-col items-center">
-        <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:8px_8px]" />
+        <div className="absolute inset-0 opacity-5 sm:opacity-15 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:8px_8px] pointer-events-none" />
 
         {/* Terminal Monitor Top Bar */}
         <div className="w-full flex items-center justify-between pb-1 mb-1 border-b border-purple-900/40 z-10 text-[8px] sm:text-[9px] font-mono text-purple-300/60">

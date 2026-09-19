@@ -31,7 +31,7 @@ export const GalaxyRadarMap: React.FC<GalaxyRadarMapProps> = ({
   return (
     <div className="w-full h-[105px] sm:h-[130px] md:h-[155px] bg-[#070412]/95 border border-purple-900/70 relative overflow-hidden mb-1.5">
       {/* Spatial Holographic Grid */}
-      <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
+      <div className="absolute inset-0 opacity-5 sm:opacity-15 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
 
       {/* Coordinate Marks */}
       <div className="absolute top-1 left-2 text-[7px] sm:text-[8px] font-mono text-purple-400/60">

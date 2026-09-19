@@ -10,7 +10,7 @@ export const TrophyPedestal: React.FC<TrophyPedestalProps> = ({ trophy }) => {
   return (
     <div className="w-full bg-[#080515]/95 border border-purple-900/70 p-2 sm:p-3 relative overflow-hidden mb-1.5 sm:mb-2">
       {/* Spatial Radial Aura */}
-      <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#f43f85_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
+      <div className="absolute inset-0 opacity-5 sm:opacity-20 bg-[radial-gradient(#f43f85_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-2 sm:gap-3 items-center relative z-10">
         {/* Left Holographic Trophy Cylinder (4 cols) */}
