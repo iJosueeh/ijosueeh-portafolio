@@ -14,32 +14,17 @@ export const NeoPixelCard: React.FC<NeoPixelCardProps> = ({
   children,
   as: Component = 'section',
   className = '',
-  hasViewTransition = true,
-  viewTransitionName,
   variant = 'default',
   glowOnHover = false,
   style,
   ...rest
 }) => {
-  // Determine transition name: explicit undefined/string takes precedence, otherwise fallback to hasViewTransition boolean
-  const resolvedTransitionName =
-    viewTransitionName !== undefined
-      ? viewTransitionName || undefined
-      : hasViewTransition
-      ? 'neo-scifi-main-card'
-      : undefined;
-
-  const combinedStyle: React.CSSProperties = {
-    ...(resolvedTransitionName ? { viewTransitionName: resolvedTransitionName } : {}),
-    ...style,
-  };
-
   return (
     <Component
       className={`relative w-full neo-scifi-panel p-3.5 sm:p-5 md:p-6 ${
-        hasViewTransition ? 'view-transition-card' : ''
-      } ${glowOnHover ? 'hover:border-purple-500/80 transition-colors' : ''} ${className}`}
-      style={combinedStyle}
+        glowOnHover ? 'hover:border-purple-500/80 transition-colors' : ''
+      } ${className}`}
+      style={style}
       {...rest}
     >
       {/* 4-Corner Geometric Stepped Pixel Markers */}
