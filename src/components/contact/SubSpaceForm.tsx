@@ -96,7 +96,9 @@ export const SubSpaceForm: React.FC<SubSpaceFormProps> = ({
             soundEffect="start"
             className="w-full py-2 sm:py-2.5 text-[9px] sm:text-xs"
           >
-            <span>📡</span>
+            <svg className="w-3.5 h-3.5 pixel-sharp shrink-0" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M7 1h2v4H7V1zm-4 5h2v4H3V6zm8 0h2v4h-2V6zM5 11h6v2H5v-2zm2 2h2v3H7v-3z" />
+            </svg>
             <span>{sentStatus ? '¡TRANSMISIÓN ENVIADA!' : 'DESPACHAR TRANSMISIÓN'}</span>
             {!sentStatus && <span className="font-mono text-[9px] text-pink-200 hidden sm:inline">[ENTER]</span>}
           </NeoPixelButton>

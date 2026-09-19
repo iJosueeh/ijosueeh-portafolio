@@ -155,12 +155,36 @@ export const ModeSelect: React.FC = () => {
                         : 'bg-[#1a1233] border-purple-900/50 text-purple-300/60 group-hover:text-white group-hover:border-purple-500'
                     }`}
                   >
-                    {mode.icon === 'user' && <span className="text-xs sm:text-sm">👤</span>}
-                    {mode.icon === 'rocket' && <span className="text-xs sm:text-sm">🚀</span>}
-                    {mode.icon === 'tech' && <span className="text-xs sm:text-sm">⚡</span>}
-                    {mode.icon === 'journey' && <span className="text-xs sm:text-sm">🗺️</span>}
-                    {mode.icon === 'trophy' && <span className="text-xs sm:text-sm">🏆</span>}
-                    {mode.icon === 'chat' && <span className="text-xs sm:text-sm">📡</span>}
+                    {mode.icon === 'user' && (
+                      <svg className="w-4 h-4 pixel-sharp" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 2a3 3 0 100 6 3 3 0 000-6zM3 13c0-2.5 2.5-4 5-4s5 1.5 5 4v1H3v-1z" />
+                      </svg>
+                    )}
+                    {mode.icon === 'rocket' && (
+                      <svg className="w-4 h-4 pixel-sharp" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 1c-2 2-3 5-3 8l-3 2v2l3-1 1 3h2l1-3 3 1v-2l-3-2c0-3-1-6-3-8zm0 5a1.5 1.5 0 110 3 1.5 1.5 0 010-3z" />
+                      </svg>
+                    )}
+                    {mode.icon === 'tech' && (
+                      <svg className="w-4 h-4 pixel-sharp" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M9 1L3 9h5l-1 6 6-8H8l1-6z" />
+                      </svg>
+                    )}
+                    {mode.icon === 'journey' && (
+                      <svg className="w-4 h-4 pixel-sharp" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M1 3l4-2 6 2 4-2v12l-4 2-6-2-4 2V3zm5 0v10l4 1.3V4.3L6 3z" />
+                      </svg>
+                    )}
+                    {mode.icon === 'trophy' && (
+                      <svg className="w-4 h-4 pixel-sharp" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M4 2H1v4c0 1.5 1 3 3 3h1v2H3v2h10v-2h-2V9h1c2 0 3-1.5 3-3V2h-3v2h1v2c0 .8-.5 1.5-1.5 1.5H11V2H5v4.5H3.5C2.7 6.5 2.2 5.8 2.2 5V4H4V2z" />
+                      </svg>
+                    )}
+                    {mode.icon === 'chat' && (
+                      <svg className="w-4 h-4 pixel-sharp" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M7 1h2v4H7V1zm-4 5h2v4H3V6zm8 0h2v4h-2V6zM5 11h6v2H5v-2zm2 2h2v3H7v-3z" />
+                      </svg>
+                    )}
                   </div>
 
                   <div className="min-w-0 flex-1">

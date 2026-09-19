@@ -140,7 +140,9 @@ export const ContactTerminal: React.FC = () => {
               soundEffect="start"
               className="flex-1 sm:flex-initial text-[8px] sm:text-xs py-1.5 sm:py-2"
             >
-              <span>🚀</span>
+              <svg className="w-3.5 h-3.5 pixel-sharp shrink-0" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8 1c-2 2-3 5-3 8l-3 2v2l3-1 1 3h2l1-3 3 1v-2l-3-2c0-3-1-6-3-8zm0 5a1.5 1.5 0 110 3 1.5 1.5 0 010-3z" />
+              </svg>
               <span>TRIPULANTE</span>
             </NeoPixelButton>
           </div>
