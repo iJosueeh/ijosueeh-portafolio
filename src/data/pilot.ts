@@ -6,20 +6,20 @@ export const PILOT_DATA: PilotProfile = {
   name: "IJOSUEEH",
   callsign: "CH-01",
   classType: "FULL-STACK",
-  role: "INGENIERO DE SOFTWARE",
-  subRole: "DESARROLLADOR FULL-STACK & ARQUITECTURA WEB",
-  specialization: "DESARROLLO WEB & SISTEMAS DISTRIBUIDOS",
+  role: "FULL STACK DEVELOPER",
+  subRole: "BACKEND · .NET · SPRING BOOT · ANGULAR",
+  specialization: "MICROSERVICIOS · APIs · ARQUITECTURA DE SOFTWARE",
   status: "P1 LISTO",
   avatar: "/hero-imagen.png",
   socials: [
     {
       name: "GITHUB",
-      url: "https://github.com",
+      url: "https://github.com/iJosueeh",
       icon: "github",
     },
     {
       name: "LINKEDIN",
-      url: "https://linkedin.com",
+      url: "https://www.linkedin.com/in/ijosueeh",
       icon: "linkedin",
     },
   ],
@@ -42,77 +42,112 @@ export const PROFILE_CHAPTERS: ProfileChapter[] = [
     code: "CAPÍTULO 01",
     title: "ORIGEN & BITÁCORA",
     badge: "HISTORIA & VISIÓN",
+
     description:
-      "Ingeniero de Software enfocado en el desarrollo de soluciones web de alto impacto. Especializado en diseñar arquitecturas escalables, interfaces altamente reactivas y experiencias digitales fluidas que combinan rigor técnico con diseño visual inmersivo.",
+      "Estudiante de Ingeniería de Software y Full Stack Developer con experiencia profesional en desarrollo backend y frontend. Trabajo principalmente con .NET, Spring Boot y Angular, con especial interés en microservicios, APIs y arquitectura de software.",
+
     bullets: [
       {
         label: "MISIÓN",
-        text: "Construir plataformas resilientes que resuelvan problemas reales de usuarios y negocios.",
+        text: "Construir software mantenible que transforme problemas reales en soluciones útiles para usuarios y negocios.",
       },
       {
         label: "TRAYECTORIA",
-        text: "Experiencia liderando desarrollo full-stack, arquitecturas frontend modernas y microservicios.",
+        text: "Experiencia en desarrollo Full Stack y Backend, incluyendo soluciones con Angular, .NET y microservicios serverless para el sector financiero.",
       },
       {
         label: "ENFOQUE",
-        text: "Mentalidad autodidacta, atención al detalle y obsesión por el rendimiento.",
+        text: "Especial interés en backend, diseño de APIs, arquitectura de software y modelado de soluciones escalables.",
       },
     ],
+
     tags: [
-      "FULL-STACK",
-      "REACT & ASTRO",
-      "SPRING BOOT & NODE",
-      "ARQUITECTURA WEB",
+      ".NET",
+      "SPRING BOOT",
+      "ANGULAR",
+      "MICROSERVICIOS",
     ],
+
     actionLabel: "VER MISIONES REALIZADAS",
     actionHref: "/proyectos",
     actionIcon: "🚀",
   },
+
   {
     id: "philosophy",
     code: "CAPÍTULO 02",
     title: "FILOSOFÍA DE INGENIERÍA",
     badge: "PROTOCOLOS CORE",
+
     description:
-      "Creo firmemente en el código limpio, estructurado y modular. Mi estándar de desarrollo prioriza la simplicidad arquitectónica, la facilidad de mantenimiento y la entrega continua de valor sin deuda técnica innecesaria.",
+      "Entiendo el desarrollo de software como algo más que hacer funcionar una aplicación. Busco construir soluciones claras, mantenibles y fáciles de evolucionar, aplicando principios de arquitectura según las necesidades reales de cada proyecto.",
+
     bullets: [
       {
-        label: "01 // CLEAN CODE & SOLID",
-        text: "Componentes desacoplados, contratos de API claros y lógica testeable.",
+        label: "01 // DISEÑO & ARQUITECTURA",
+        text: "Separación de responsabilidades, componentes reutilizables y estructuras que faciliten la evolución del software.",
       },
       {
-        label: "02 // RENDIMIENTO INSTANTÁNEO",
-        text: "Cero bloatware, tiempos de carga mínimos y microinteracciones a 60 FPS.",
+        label: "02 // BACKEND & APIs",
+        text: "APIs y servicios diseñados con contratos claros, persistencia consistente y lógica de negocio bien delimitada.",
       },
       {
-        label: "03 // IMPACTO EN NEGOCIO",
-        text: "El mejor software es el que genera valor medible y resuelve cuellos de botella.",
+        label: "03 // PRODUCTO & USUARIO",
+        text: "Las decisiones técnicas deben responder a un problema real y aportar valor al usuario, no añadir complejidad innecesaria.",
       },
     ],
-    tags: ["CLEAN ARCHITECTURE", "SOLID", "TYPE SAFETY", "PERFORMANCE FIRST"],
+
+    tags: [
+      "CLEAN ARCHITECTURE",
+      "CQRS",
+      "REST APIs",
+      "SOLID",
+    ],
+
     actionLabel: "EXPLORAR HABILIDADES",
     actionHref: "/habilidades",
     actionIcon: "⚡",
   },
+
   {
     id: "telemetry",
     code: "CAPÍTULO 03",
     title: "TELEMETRÍA & STATS",
-    badge: "MÉTRICAS DE PILOTO",
+    badge: "DATOS DE PERFIL",
+
     description:
-      "Medición de capacidades operativas en combate dev. Dominio equilibrado entre la ingeniería de sistemas distribuidos y el desarrollo de experiencias de usuario de alta fidelidad.",
+      "Resumen de mi experiencia técnica y formación actual, combinando desarrollo backend, frontend, bases de datos y herramientas utilizadas en proyectos profesionales y académicos.",
+
     stats: [
-      { label: "FRONTEND & UI/UX REACTIVA", value: 95, color: "#f43f85" },
-      { label: "BACKEND & ARQUITECTURA DE APIS", value: 90, color: "#38bdf8" },
-      { label: "BASES DE DATOS & PERSISTENCIA", value: 88, color: "#d8b4fe" },
-      { label: "DEVOPS, CI/CD & CLOUD", value: 82, color: "#fbbf24" },
+      {
+        label: "MICROSERVICIOS DESARROLLADOS",
+        value: "12+",
+        color: "#38bdf8",
+      },
+      {
+        label: "PUESTO ACADÉMICO",
+        value: "1 / 301",
+        color: "#f43f85",
+      },
+      {
+        label: "PROMEDIO PONDERADO",
+        value: "19.42 / 20",
+        color: "#d8b4fe",
+      },
+      {
+        label: "CICLO ACTUAL",
+        value: "8VO",
+        color: "#fbbf24",
+      },
     ],
+
     tags: [
-      "ESPAÑOL (NATIVO)",
-      "INGLÉS (TÉCNICO / B2)",
+      "ESPAÑOL · NATIVO",
+      "INGLÉS · A2",
+      "LIMA · PERÚ",
       "REMOTO / HÍBRIDO",
-      "DISPONIBLE",
     ],
+
     actionLabel: "CONTACTAR PILOTO",
     actionHref: "/contacto",
     actionIcon: "📡",

@@ -1,4 +1,3 @@
-// 1. Perfil / Tripulante
 export interface ProfileChapter {
   id: string;
   code: string;
@@ -6,7 +5,7 @@ export interface ProfileChapter {
   badge: string;
   description: string;
   bullets?: { label: string; text: string }[];
-  stats?: { label: string; value: number; color: string }[];
+  stats?: { label: string; value: string | number; color: string }[];
   tags: string[];
   actionLabel?: string;
   actionHref?: string;

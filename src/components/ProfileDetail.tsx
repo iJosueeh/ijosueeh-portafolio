@@ -160,25 +160,23 @@ export const ProfileDetail: React.FC = () => {
               </div>
             )}
 
-            {/* Telemetry Stats Bars (Chapter 3) */}
+            {/* Telemetry Stats Grid (Chapter 3) */}
             {currentChapter.stats && (
-              <div className="space-y-2 bg-[#0e0920]/80 p-2.5 border border-purple-900/50">
+              <div className="grid grid-cols-2 gap-2 bg-[#0e0920]/80 p-2.5 border border-purple-900/50">
                 {currentChapter.stats.map((s, idx) => (
-                  <div key={idx} className="space-y-0.5">
-                    <div className="flex justify-between text-[9px] font-mono tracking-wider">
-                      <span className="text-purple-200 font-semibold">{s.label}</span>
-                      <span className="text-pink-300 font-bold font-arcade text-[8px]">{s.value}%</span>
-                    </div>
-                    <div className="w-full h-2 bg-[#070410] border border-purple-900/80 p-0.5">
-                      <div
-                        className="h-full transition-all duration-500"
-                        style={{
-                          width: `${s.value}%`,
-                          backgroundColor: s.color,
-                          boxShadow: `0 0 6px ${s.color}`,
-                        }}
-                      />
-                    </div>
+                  <div
+                    key={idx}
+                    className="flex flex-col justify-between p-2 bg-[#070410]/70 border border-purple-900/60 relative overflow-hidden"
+                  >
+                    <span className="text-[7px] sm:text-[8px] font-arcade text-purple-300/80 uppercase tracking-wider mb-1 line-clamp-1">
+                      {s.label}
+                    </span>
+                    <span
+                      className="text-xs sm:text-sm font-arcade font-bold tracking-wider"
+                      style={{ color: s.color, textShadow: `0 0 8px ${s.color}40` }}
+                    >
+                      {s.value}
+                    </span>
                   </div>
                 ))}
               </div>
