@@ -70,7 +70,7 @@ export interface PlanetaryStation {
   period: string;
   role: string;
   environment: string;
-  status: "ÓRBITA ACTUAL" | "MISIÓN CONCLUIDA";
+  status: "ÓRBITA ACTUAL" | "MISIÓN CONCLUIDA" | "FORMACIÓN ACTIVA";
   coordinates: string;
   posX: number;
   posY: number;
@@ -93,7 +93,7 @@ export interface Trophy {
   date: string;
   description: string;
   stats: { label: string; value: string }[];
-  type: "architecture" | "performance" | "production" | "fullstack";
+  type: "architecture" | "performance" | "production" | "fullstack" | "professional" | "hackathon" | "scholarship" | "academic";
 }
 
 export interface ModeItem {

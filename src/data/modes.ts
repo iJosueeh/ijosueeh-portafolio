@@ -26,9 +26,9 @@ export const MODES_DATA: ModeConfig[] = [
     code: "CH-02",
     index: "02 //",
     title: "PROYECTOS",
-    subtitle: "TRABAJOS & DEMOS",
+    subtitle: "MISIONES & DEMOS",
     description:
-      "EXPLORA LAS MISIONES, APLICACIONES Y SISTEMAS WEB QUE HE CONSTRUIDO.",
+      "EXPLORA LOS PROYECTOS, APLICACIONES Y SOLUCIONES QUE HE CONSTRUIDO.",
     icon: "rocket",
     href: "/proyectos",
   },
@@ -39,7 +39,7 @@ export const MODES_DATA: ModeConfig[] = [
     title: "HABILIDADES",
     subtitle: "STACK & MÓDULOS",
     description:
-      "INVENTARIO DE HERRAMIENTAS: REACT, ASTRO, TYPESCRIPT, NODE Y ARQUITECTURA.",
+      "EXPLORA MI STACK: .NET, SPRING BOOT, ANGULAR, REACT, DATOS Y CLOUD.",
     icon: "tech",
     href: "/habilidades",
   },
@@ -47,10 +47,10 @@ export const MODES_DATA: ModeConfig[] = [
     id: "experience",
     code: "CH-04",
     index: "04 //",
-    title: "CARRERA",
-    subtitle: "TRAYECTORIA & XP",
+    title: "TRAYECTORIA",
+    subtitle: "EXPERIENCIA & FORMACIÓN",
     description:
-      "BITÁCORA DE VIAJE: EXPERIENCIA PROFESIONAL Y EMPRESAS EN LAS QUE HE COLABORADO.",
+      "RECORRE MI EVOLUCIÓN ACADÉMICA Y EXPERIENCIA PROFESIONAL EN DESARROLLO DE SOFTWARE.",
     icon: "journey",
     href: "/carrera",
   },
@@ -61,7 +61,7 @@ export const MODES_DATA: ModeConfig[] = [
     title: "LOGROS",
     subtitle: "HITOS DESBLOQUEADOS",
     description:
-      "CERTIFICACIONES, MISIONES COMPLETADAS Y CASOS DE ÉXITO DESTACADOS.",
+      "DESCUBRE RECONOCIMIENTOS, HACKATHONS Y LOGROS QUE HAN MARCADO MI TRAYECTORIA.",
     icon: "trophy",
     href: "/logros",
   },
@@ -72,7 +72,7 @@ export const MODES_DATA: ModeConfig[] = [
     title: "CONTACTO",
     subtitle: "CANAL DE COMUNICACIÓN",
     description:
-      "ESTABLECE ENLACE DIRECTO PARA NUEVAS OPORTUNIDADES Y COLABORACIONES.",
+      "ESTABLECE ENLACE DIRECTO PARA OPORTUNIDADES, PROYECTOS Y COLABORACIONES.",
     icon: "comms",
     href: "/contacto",
   },
